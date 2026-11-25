@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kolettattoo, салон художественной татуировки в Перми</title>
+  <meta name="description" content="Тату-салон Kolettattoo в Перми: ул. Карпинского, 31, 1 этаж. Татуировки, пирсинг, перманентный макияж и удаление. Пн - Сб с 11:00 до 20:00 по записи.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #F2F1EE;
+      --bg-surface: #FAF9F6;
+      --bg-subtle: #E7E5DF;
+      --border: rgba(31, 36, 41, 0.10);
+      --border-strong: rgba(31, 36, 41, 0.20);
+      --text-primary: #1F2429;
+      --text-secondary: #535A61;
+      --text-muted: #7C8289;
+      --accent: #2D3A45;
+      --accent-hover: #222D36;
+      --accent-tint: #E4E8EC;
+      --radius-panel: 14px;
+      --radius-control: 8px;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin-inline: auto;
+      padding-inline: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding-inline: 28px;
+      }
+    }
+
+    /* Header */
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background-color: var(--bg-surface);
+    }
+
+    .header-inner {
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-block: 10px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background-color: var(--accent);
+    }
+
+    .header-sub {
+      display: none;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 560px) {
+      .header-sub {
+        display: inline;
+      }
+    }
+
+    .header-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      padding: 6px 12px;
+      border-radius: var(--radius-control);
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease);
+    }
+
+    .header-phone:hover {
+      border-color: var(--border-strong);
+      background-color: var(--bg-subtle);
+    }
+
+    /* Main grid */
+    .page-grid {
+      padding-block: 28px 48px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (min-width: 820px) {
+      .page-grid {
+        padding-block: 44px 64px;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 28px;
+      }
+    }
+
+    .left-col,
+    .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .panel {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-panel);
+      padding: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .panel {
+        padding: 24px;
+      }
+    }
+
+    .loc-line {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .hero-title {
+        font-size: 34px;
+      }
+    }
+
+    .hero-copy {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      max-width: 52ch;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 18px;
+      border-radius: var(--radius-control);
+      background-color: var(--accent);
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background-color 150ms var(--ease), transform 120ms var(--ease);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-primary:active,
+    .btn-secondary:active {
+      transform: scale(0.98);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 16px;
+      border-radius: var(--radius-control);
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 14px;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease), transform 120ms var(--ease);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-strong);
+      background-color: var(--bg-subtle);
+    }
+
+    .panel-title {
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    /* Services grid inside left panel */
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .service-row {
+      padding: 14px 16px;
+      border-radius: 10px;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+    }
+
+    .service-name {
+      font-weight: 500;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .notes-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .notes-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .notes-list .icon {
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    /* Right column consultation builder */
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .field select,
+    .field input {
+      height: 44px;
+      padding: 0 12px;
+      border-radius: var(--radius-control);
+      border: 1px solid var(--border);
+      background-color: var(--bg-page);
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text-primary);
+    }
+
+    .draft-box {
+      padding: 12px 14px;
+      border-radius: var(--radius-control);
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .spec-table {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .spec-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .spec-line:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .spec-key {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .spec-val {
+      text-align: right;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding-block: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    @media (min-width: 640px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>Kolettattoo</span>
+        <span class="header-sub">Пермь, Индустриальный район</span>
+      </a>
+
+      <a href="tel:+79082785427" class="header-phone">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+7 908 278-54-27</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container page-grid">
+    <div class="left-col">
+      <section class="panel">
+        <div class="loc-line">Пермь, ул. Карпинского, 31, 1 этаж</div>
+        <h1 class="hero-title">Салон художественной татуировки Kolettattoo</h1>
+        <p class="hero-copy">
+          Татуировка, пирсинг, перманентный макияж и удаление. Работает мастер Николай с понедельника по субботу по предварительной записи. Стоимость обсуждается заранее до начала сеанса.
+        </p>
+        <div class="actions">
+          <a href="tel:+79082785427" class="btn-primary">Позвонить</a>
+          <a href="https://wa.me/79082785427" target="_blank" rel="noopener" class="btn-secondary">Написать в WhatsApp</a>
+          <a href="https://2gis.ru/perm/firm/70000001039280488" target="_blank" rel="noopener" class="btn-secondary">2ГИС</a>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel-title">Направления работы</h2>
+        <div class="service-list">
+          <div class="service-row">
+            <div class="service-name">Художественная татуировка</div>
+            <div class="service-desc">Подбор эскиза из каталога студии или доработка вашей идеи с учётом расположения на теле</div>
+          </div>
+          <div class="service-row">
+            <div class="service-name">Услуги пирсинга</div>
+            <div class="service-desc">Аккуратная работа одноразовыми стерильными инструментами и памятка по уходу</div>
+          </div>
+          <div class="service-row">
+            <div class="service-name">Перманентный макияж</div>
+            <div class="service-desc">Предварительная консультация по форме и оттенку перед процедурой</div>
+          </div>
+          <div class="service-row">
+            <div class="service-name">Удаление татуировок и перманента</div>
+            <div class="service-desc">Оценка состояния кожи и план сеансов на месте или по фото</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel-title">Что отмечают посетители на 2ГИС</h2>
+        <ul class="notes-list">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Оценка 5.0 по 16 оценкам и 14 отзывам</span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Стерильность, чистота рабочего места и аккуратность мастера Николая</span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Понятная цена заранее, большой выбор эскизов и подробные рекомендации по заживлению</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <aside class="right-col">
+      <section class="panel">
+        <h2 class="panel-title">Оценить идею до визита</h2>
+        <div class="field">
+          <label for="srv-select">Услуга</label>
+          <select id="srv-select">
+            <option value="татуировке">Художественная татуировка</option>
+            <option value="пирсингу">Пирсинг</option>
+            <option value="перманентному макияжу">Перманентный макияж</option>
+            <option value="удалению тату или перманента">Удаление тату / перманента</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="zone-input">Зона и примерный размер</label>
+          <input type="text" id="zone-input" placeholder="Например: плечо, около 10 см">
+        </div>
+        <div class="draft-box" id="draft-preview"></div>
+        <div class="actions">
+          <a href="https://wa.me/79082785427" target="_blank" rel="noopener" class="btn-primary" id="wa-btn">Отправить в WhatsApp</a>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel-title">График и адрес</h2>
+        <div class="spec-table">
+          <div class="spec-line">
+            <span class="spec-key">Пн - Сб</span>
+            <span class="spec-val mono">11:00 - 20:00 (по записи)</span>
+          </div>
+          <div class="spec-line">
+            <span class="spec-key">Воскресенье</span>
+            <span class="spec-val">Выходной</span>
+          </div>
+          <div class="spec-line">
+            <span class="spec-key">Адрес</span>
+            <span class="spec-val">Улица Карпинского, 31, 1 этаж</span>
+          </div>
+          <div class="spec-line">
+            <span class="spec-key">Остановка</span>
+            <span class="spec-val">«Сивкова» (150 м, 12 парковок)</span>
+          </div>
+          <div class="spec-line">
+            <span class="spec-key">Оплата</span>
+            <span class="spec-val">Наличные и перевод с карты</span>
+          </div>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>Kolettattoo, Пермь, ул. Карпинского, 31</div>
+      <div><a href="https://2gis.ru/perm/firm/70000001039280488" target="_blank" rel="noopener">Профиль в 2ГИС</a></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const srvSelect = document.getElementById('srv-select');
+      const zoneInput = document.getElementById('zone-input');
+      const draftPreview = document.getElementById('draft-preview');
+      const waBtn = document.getElementById('wa-btn');
+
+      function updateMessage() {
+        const srv = srvSelect.value;
+        const zone = zoneInput.value.trim();
+        let msg = 'Здравствуйте, Николай. Хочу проконсультироваться по ' + srv + ' и узнать свободную дату.';
+        if (zone) {
+          msg += ' Детали: ' + zone + '.';
+        }
+        draftPreview.textContent = msg;
+        waBtn.href = 'https://wa.me/79082785427?text=' + encodeURIComponent(msg);
+      }
+
+      srvSelect.addEventListener('change', updateMessage);
+      zoneInput.addEventListener('input', updateMessage);
+      updateMessage();
+    })();
+  </script>
+</body>
+</html>
