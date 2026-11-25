@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Наш салончик, парикмахерская в Ярославле</title>
+  <meta name="description" content="Парикмахерская «Наш салончик» в Ярославле, ул. Чкалова, 61. Женские, мужские и детские стрижки, окрашивание волос. Ежедневно с 09:00 до 19:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #F7F5F2;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #EFECE6;
+      --border: rgba(38, 34, 30, 0.10);
+      --border-strong: rgba(38, 34, 30, 0.18);
+      --text-primary: #26221E;
+      --text-secondary: #5E574F;
+      --text-muted: #888076;
+      --accent: #3D5A4C;
+      --accent-hover: #31493D;
+      --accent-tint: #EDF2EF;
+      --radius-panel: 16px;
+      --radius-card: 12px;
+      --radius-control: 8px;
+      --font-sans: 'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 76px;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding-bottom: 0;
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1040px;
+      margin-inline: auto;
+      padding-inline: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding-inline: 32px;
+      }
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background-color: rgba(247, 245, 242, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-block: 12px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-control);
+      background-color: var(--accent-tint);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-nav {
+      display: none;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .header-nav a {
+      transition: color 150ms var(--ease);
+    }
+
+    .header-nav a:hover {
+      color: var(--text-primary);
+    }
+
+    .header-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: var(--radius-control);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease);
+      white-space: nowrap;
+    }
+
+    .header-phone:hover {
+      border-color: var(--border-strong);
+      background-color: var(--bg-subtle);
+    }
+
+    .header-phone .icon {
+      color: var(--accent);
+    }
+
+    @media (min-width: 768px) {
+      .header-nav {
+        display: flex;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      padding-block: 32px 40px;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding-block: 56px 64px;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    @media (min-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 48px;
+      }
+    }
+
+    .hero-place {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .hero-place-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--accent);
+    }
+
+    .hero-title {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.16;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      max-width: 18ch;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 44px;
+      }
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 48ch;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 20px;
+      border-radius: var(--radius-control);
+      background-color: var(--accent);
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 500;
+      transition: background-color 150ms var(--ease), transform 120ms var(--ease);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-primary:active,
+    .btn-secondary:active {
+      transform: scale(0.98);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 18px;
+      border-radius: var(--radius-control);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 15px;
+      font-weight: 400;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease), transform 120ms var(--ease);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-strong);
+      background-color: var(--bg-subtle);
+    }
+
+    /* Info card */
+    .visit-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-panel);
+      padding: 24px;
+    }
+
+    .visit-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .visit-card-title {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .status-text {
+      font-size: 13px;
+      color: var(--accent);
+      background-color: var(--accent-tint);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .visit-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .visit-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .visit-row .icon {
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .visit-label {
+      color: var(--text-muted);
+      font-size: 13px;
+      display: block;
+    }
+
+    .visit-val {
+      color: var(--text-primary);
+    }
+
+    /* Sections */
+    .section {
+      padding-block: 36px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (min-width: 768px) {
+      .section {
+        padding-block: 56px;
+      }
+    }
+
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .section-head {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+    }
+
+    .section-note {
+      font-size: 14px;
+      color: var(--text-secondary);
+      max-width: 44ch;
+    }
+
+    /* Filter tabs */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .filter-btn {
+      min-height: 36px;
+      padding: 6px 14px;
+      border-radius: var(--radius-control);
+      font-size: 14px;
+      color: var(--text-secondary);
+      background-color: var(--bg-subtle);
+      border: 1px solid transparent;
+      transition: background-color 150ms var(--ease), color 150ms var(--ease), border-color 150ms var(--ease);
+    }
+
+    .filter-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .filter-btn[aria-pressed="true"] {
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+      font-weight: 500;
+    }
+
+    /* Services list */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 680px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .service-item {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: border-color 150ms var(--ease);
+    }
+
+    .service-item:hover {
+      border-color: var(--border-strong);
+    }
+
+    .service-item[hidden] {
+      display: none;
+    }
+
+    .service-name {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .service-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .service-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .service-action {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Masters & Notes */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .two-col {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+    }
+
+    .panel {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-panel);
+      padding: 24px;
+    }
+
+    .panel-title {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .master-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .master-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: var(--radius-control);
+      background-color: var(--bg-page);
+      border: 1px solid var(--border);
+    }
+
+    .master-name {
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .master-role {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .rating-summary {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .rating-score {
+      font-family: var(--font-mono);
+      font-size: 32px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .rating-caption {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .fact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .fact-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .fact-list .icon {
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    /* Quick inquiry helper */
+    .booking-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-panel);
+      padding: 24px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .form-grid {
+        grid-template-columns: 1fr 1fr auto;
+        align-items: end;
+      }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field label {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .field select,
+    .field input {
+      height: 44px;
+      padding: 0 12px;
+      border-radius: var(--radius-control);
+      border: 1px solid var(--border);
+      background-color: var(--bg-page);
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--text-primary);
+    }
+
+    .booking-hint {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      min-height: 22px;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding-block: 28px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      transition: color 150ms var(--ease);
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Mobile bottom bar */
+    .mobile-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border);
+      padding: 10px 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-bar {
+        display: none;
+      }
+    }
+
+    .mobile-bar a {
+      min-height: 44px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+        </span>
+        <span>Наш салончик</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Разделы сайта">
+        <a href="#services">Услуги</a>
+        <a href="#masters">Мастера</a>
+        <a href="#location">Адрес</a>
+      </nav>
+
+      <a href="tel:+79080270757" class="header-phone">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+7 908 027-07-57</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-place">
+            <span class="hero-place-dot" aria-hidden="true"></span>
+            <span>Ярославль, район Пятёрка</span>
+          </div>
+          <h1 class="hero-title">Спокойная парикмахерская рядом с домом</h1>
+          <p class="hero-desc">
+            Женские, мужские и детские стрижки, окрашивание волос. Небольшой зал на улице Чкалова, 61 без суеты и лишнего шума.
+          </p>
+          <div class="hero-actions">
+            <a href="tel:+79080270757" class="btn-primary">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Позвонить для записи</span>
+            </a>
+            <a href="https://2gis.ru/yaroslavl/firm/70000001112355288" target="_blank" rel="noopener" class="btn-secondary">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Открыть в 2ГИС</span>
+            </a>
+          </div>
+        </div>
+
+        <aside class="visit-card" aria-label="Краткая справка">
+          <div class="visit-card-head">
+            <span class="visit-card-title">График и адрес</span>
+            <span class="status-text" id="open-status">Ежедневно</span>
+          </div>
+          <div class="visit-rows">
+            <div class="visit-row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div>
+                <span class="visit-label">Часы работы</span>
+                <span class="visit-val mono">Пн - Вс: 09:00 - 19:00</span>
+              </div>
+            </div>
+            <div class="visit-row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <span class="visit-label">Адрес</span>
+                <span class="visit-val">Улица Чкалова, 61, Ленинский район, 150031</span>
+              </div>
+            </div>
+            <div class="visit-row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="18" x2="12" y2="21"/></svg>
+              <div>
+                <span class="visit-label">Как добраться</span>
+                <span class="visit-val">Остановка «Юности» в 100 м, рядом 12 парковок</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Услуги парикмахерской</h2>
+          </div>
+          <p class="section-note">
+            Точную стоимость по длине волос и свободное время на нужный день подскажем по телефону
+          </p>
+        </div>
+
+        <div class="filter-bar" role="group" aria-label="Фильтр услуг">
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">Все услуги</button>
+          <button type="button" class="filter-btn" data-filter="cuts" aria-pressed="false">Стрижки</button>
+          <button type="button" class="filter-btn" data-filter="color" aria-pressed="false">Окрашивание</button>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-item" data-cat="cuts">
+            <div>
+              <h3 class="service-name">Женская стрижка</h3>
+              <p class="service-desc">Подбор формы с учётом структуры волос, подравнивание кончиков и сушка по форме</p>
+            </div>
+            <div class="service-meta">
+              <span>По записи или в свободное окно</span>
+              <a href="tel:+79080270757" class="service-action">Уточнить цену</a>
+            </div>
+          </article>
+
+          <article class="service-item" data-cat="cuts">
+            <div>
+              <h3 class="service-name">Мужская стрижка</h3>
+              <p class="service-desc">Классические и повседневные стрижки ножницами и машинкой, аккуратная окантовка</p>
+            </div>
+            <div class="service-meta">
+              <span>Без долгого ожидания</span>
+              <a href="tel:+79080270757" class="service-action">Уточнить цену</a>
+            </div>
+          </article>
+
+          <article class="service-item" data-cat="cuts">
+            <div>
+              <h3 class="service-name">Детская стрижка</h3>
+              <p class="service-desc">Бережная и спокойная работа с детьми, аккуратная форма на каждый день</p>
+            </div>
+            <div class="service-meta">
+              <span>Комфортный зал</span>
+              <a href="tel:+79080270757" class="service-action">Уточнить цену</a>
+            </div>
+          </article>
+
+          <article class="service-item" data-cat="color">
+            <div>
+              <h3 class="service-name">Окрашивание волос</h3>
+              <p class="service-desc">Обновление цвета в один тон, окрашивание корней и подбор оттенка вместе с мастером</p>
+            </div>
+            <div class="service-meta">
+              <span>Расчёт по длине волос</span>
+              <a href="tel:+79080270757" class="service-action">Уточнить цену</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="masters">
+      <div class="container two-col">
+        <div class="panel">
+          <h2 class="panel-title">Мастера зала</h2>
+          <ul class="master-list">
+            <li class="master-row">
+              <div>
+                <div class="master-name">Алёна</div>
+                <div class="master-role">Стрижки и окрашивание</div>
+              </div>
+              <a href="tel:+79080270757" class="service-action">Записаться</a>
+            </li>
+            <li class="master-row">
+              <div>
+                <div class="master-name">Ольга Шлей</div>
+                <div class="master-role">Женские, мужские и детские стрижки</div>
+              </div>
+              <a href="tel:+79080270757" class="service-action">Записаться</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h2 class="panel-title">Оценка гостей на 2ГИС</h2>
+          <div class="rating-summary">
+            <span class="rating-score">5.0</span>
+            <span class="rating-caption">10 оценок и 9 отзывов</span>
+          </div>
+          <ul class="fact-list">
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Чистота в рабочем зале и спокойная обстановка без толпы</span>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Удобный формат районной парикмахерской на Пятёрке</span>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Внимательные мастера, к которым возвращаются всей семьёй</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="location">
+      <div class="container">
+        <div class="booking-box">
+          <h2 class="panel-title">Подготовка к звонку</h2>
+          <p class="section-note">Выберите услугу и удобное время, чтобы сразу уточнить свободное окно у администратора</p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="pick-service">Услуга</label>
+              <select id="pick-service">
+                <option value="Женская стрижка">Женская стрижка</option>
+                <option value="Мужская стрижка">Мужская стрижка</option>
+                <option value="Детская стрижка">Детская стрижка</option>
+                <option value="Окрашивание волос">Окрашивание волос</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pick-time">Желаемое время</label>
+              <select id="pick-time">
+                <option value="утром (09:00 - 12:00)">Утром, 09:00 - 12:00</option>
+                <option value="днём (12:00 - 16:00)">Днём, 12:00 - 16:00</option>
+                <option value="вечером (16:00 - 19:00)">Вечером, 16:00 - 19:00</option>
+              </select>
+            </div>
+            <a href="tel:+79080270757" class="btn-primary" id="call-btn">Позвонить</a>
+          </div>
+          <p class="booking-hint" id="booking-summary">
+            Запрос: женская стрижка, время утром (09:00 - 12:00). Тел.: +7 908 027-07-57
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>Наш салончик, Ярославль, ул. Чкалова, 61</div>
+      <div class="footer-links">
+        <a href="tel:+79080270757" class="mono">+7 908 027-07-57</a>
+        <a href="https://2gis.ru/yaroslavl/firm/70000001112355288" target="_blank" rel="noopener">Карточка в 2ГИС</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-bar">
+    <a href="tel:+79080270757" class="btn-primary">Позвонить</a>
+    <a href="https://2gis.ru/yaroslavl/firm/70000001112355288" target="_blank" rel="noopener" class="btn-secondary">Маршрут</a>
+  </div>
+
+  <script>
+    (function () {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const serviceItems = document.querySelectorAll('.service-item');
+
+      filterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const target = btn.getAttribute('data-filter');
+          filterButtons.forEach(function (other) {
+            other.setAttribute('aria-pressed', other === btn ? 'true' : 'false');
+          });
+          serviceItems.forEach(function (item) {
+            if (target === 'all' || item.getAttribute('data-cat') === target) {
+              item.hidden = false;
+            } else {
+              item.hidden = true;
+            }
+          });
+        });
+      });
+
+      const serviceSelect = document.getElementById('pick-service');
+      const timeSelect = document.getElementById('pick-time');
+      const summaryEl = document.getElementById('booking-summary');
+
+      function updateSummary() {
+        const service = serviceSelect.value.toLowerCase();
+        const time = timeSelect.value;
+        summaryEl.textContent = 'Запрос: ' + service + ', время ' + time + '. Тел.: +7 908 027-07-57';
+      }
+
+      serviceSelect.addEventListener('change', updateSummary);
+      timeSelect.addEventListener('change', updateSummary);
+
+      const statusEl = document.getElementById('open-status');
+      const now = new Date();
+      const hour = now.getHours();
+      if (hour >= 9 && hour < 19) {
+        statusEl.textContent = 'Открыто до 19:00';
+      } else {
+        statusEl.textContent = 'Ежедневно 09:00 - 19:00';
+      }
+    })();
+  </script>
+</body>
+</html>
