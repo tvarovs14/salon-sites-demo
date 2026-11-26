@@ -9,14 +9,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root { --bg: #F3F5F7; --surface: #FFFFFF; --border: rgba(24,36,50,0.09); --text: #182432; --muted: #556372; --accent: #2B4158; --accent-ink: #FFFFFF; --tint: #ECF0F4; --r: 14px; --rc: 8px; --sans: 'Golos Text', sans-serif; --mono: 'IBM Plex Mono', monospace; }
+    :root {
+      --bg: #F3F5F7;
+      --surface: #FFFFFF;
+      --border: rgba(24, 36, 50, 0.09);
+      --text: #182432;
+      --muted: #556372;
+      --accent: #2B4158;
+      --accent-ink: #FFFFFF;
+      --tint: #ECF0F4;
+      --r: 14px;
+      --rc: 8px;
+      --sans: 'Golos Text', sans-serif;
+      --mono: 'IBM Plex Mono', monospace;
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; padding-bottom: 76px; }
+    @media (min-width: 768px) { body { padding-bottom: 0; } }
     a { color: inherit; text-decoration: none; }
     button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
     .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
-    .container { width: 100%; max-width: 820px; margin-inline: auto; padding-inline: 16px; }
-    .header { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .container { width: 100%; max-width: 840px; margin-inline: auto; padding-inline: 16px; }
+    .header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 30; }
     .header-in { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
     .brand { font-weight: 500; font-size: 16px; }
     .city { font-size: 13px; color: var(--muted); margin-left: 8px; font-weight: 400; }
@@ -34,8 +48,14 @@
     .pill { min-height: 36px; padding: 6px 14px; border-radius: var(--rc); background: var(--bg); border: 1px solid var(--border); font-size: 13px; }
     .pill[aria-pressed="true"] { background: var(--tint); border-color: var(--accent); color: var(--accent); font-weight: 500; }
     .rec { padding: 14px; border-radius: var(--rc); background: var(--bg); border: 1px solid var(--border); font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+    .slots { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .slot { min-height: 38px; padding: 6px 12px; border-radius: var(--rc); background: var(--bg); border: 1px solid var(--border); font-family: var(--mono); font-size: 13px; }
+    .slot[aria-pressed="true"] { background: var(--accent); color: #FFF; border-color: var(--accent); }
+    .confirm { margin-top: 12px; padding: 12px; border-radius: var(--rc); background: var(--tint); border: 1px solid var(--accent); font-size: 13px; display: none; }
     .footer { border-top: 1px solid var(--border); padding-block: 20px; font-size: 13px; color: var(--muted); }
     .footer-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+    .dock { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.96); border-top: 1px solid var(--border); padding: 10px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (min-width: 768px) { .dock { display: none; } }
   </style>
 </head>
 <body>
@@ -45,28 +65,48 @@
       <div class="loc">Воскресенская ул., 59, 2 этаж</div>
       <h1>Парикмахерская «Токио»</h1>
       <p class="desc">Стрижки, окрашивание и уход за волосами в центре Архангельска. Ежедневно с 10:00 до 20:00. Оценка 5.0 на 2ГИС (11 отзывов).</p>
-      <div class="btns"><a href="tel:+79115541555" class="btn-a">Позвонить</a><a href="tel:+78182400700" class="btn-b mono">Гор.: +7 (8182) 40-07-00</a><a href="https://2gis.ru/arkhangelsk/firm/70000001103852610" target="_blank" rel="noopener" class="btn-b">2ГИС</a></div>
+      <div class="btns"><a href="#book" class="btn-a">Онлайн-запись</a><a href="tel:+78182400700" class="btn-b mono">Гор.: +7 (8182) 40-07-00</a><a href="https://2gis.ru/arkhangelsk/firm/70000001103852610" target="_blank" rel="noopener" class="btn-b">2ГИС</a></div>
     </section>
-    <section class="card">
-      <h2>Подбор услуги по длине волос</h2>
+    <section class="card" id="book">
+      <h2>Подбор услуги и запись</h2>
       <div class="pills">
         <button type="button" class="pill" data-txt="Для коротких волос подойдёт быстрая стрижка или обновление формы за 30-40 минут." aria-pressed="true">Короткие</button>
         <button type="button" class="pill" data-txt="Для средней длины рекомендуем стрижку по форме или тонирование для ровного блеска." aria-pressed="false">Средняя длина</button>
         <button type="button" class="pill" data-txt="Для длинных волос предлагаем подравнивание, многослойную форму или уход по длине." aria-pressed="false">Длинные</button>
       </div>
       <div class="rec" id="rec-box">Для коротких волос подойдёт быстрая стрижка или обновление формы за 30-40 минут.</div>
-      <a href="tel:+79115541555" class="btn-a">Записаться на удобное время</a>
+      <div class="slots">
+        <button type="button" class="slot" aria-pressed="true">10:00</button>
+        <button type="button" class="slot" aria-pressed="false">12:00</button>
+        <button type="button" class="slot" aria-pressed="false">14:00</button>
+        <button type="button" class="slot" aria-pressed="false">16:30</button>
+        <button type="button" class="slot" aria-pressed="false">18:30</button>
+      </div>
+      <button type="button" class="btn-a" id="bk-btn">Забронировать время</button>
+      <div class="confirm" id="bk-msg"></div>
     </section>
   </main>
   <footer class="footer"><div class="container footer-in"><span>Токио, Архангельск, Воскресенская ул., 59</span><a href="https://2gis.ru/arkhangelsk/firm/70000001103852610" target="_blank" rel="noopener">2ГИС</a></div></footer>
+  <div class="dock"><a href="#book" class="btn-a">Записаться</a><a href="tel:+79115541555" class="btn-b">Позвонить</a></div>
   <script>
     (function () {
-      const pills = document.querySelectorAll('.pill'), box = document.getElementById('rec-box');
+      const pills = document.querySelectorAll('.pill'), box = document.getElementById('rec-box'), slots = document.querySelectorAll('.slot'), btn = document.getElementById('bk-btn'), msg = document.getElementById('bk-msg');
+      let selTime = '10:00';
       pills.forEach(function (p) {
         p.addEventListener('click', function () {
           pills.forEach(function (o) { o.setAttribute('aria-pressed', o === p ? 'true' : 'false'); });
           box.textContent = p.getAttribute('data-txt');
         });
+      });
+      slots.forEach(function (s) {
+        s.addEventListener('click', function () {
+          slots.forEach(function (o) { o.setAttribute('aria-pressed', o === s ? 'true' : 'false'); });
+          selTime = s.textContent;
+        });
+      });
+      btn.addEventListener('click', function () {
+        msg.style.display = 'block';
+        msg.textContent = 'Время ' + selTime + ' выбрано. Для подтверждения позвоните +7 911 554-15-55.';
       });
     })();
   </script>
