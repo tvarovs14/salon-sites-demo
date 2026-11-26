@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Три Топора, тату-студия в Астрахани</title>
+  <meta name="description" content="Тату-студия «Три Топора» в Астрахани: ул. Фиолетова, 8, 2 этаж. Круглосуточно по предварительному звонку.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #F4F1EC; --surface: #FFFFFF; --border: rgba(34,26,24,0.09); --text: #221A18; --muted: #665B58; --accent: #6B3B35; --accent-ink: #FFFFFF; --r: 14px; --rc: 8px; --sans: 'Manrope', sans-serif; --mono: 'IBM Plex Mono', monospace; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+    .container { width: 100%; max-width: 660px; margin-inline: auto; padding-inline: 16px; }
+    .header { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .header-in { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+    .brand { font-weight: 500; font-size: 16px; }
+    .city { font-size: 13px; color: var(--muted); margin-left: 8px; font-weight: 400; }
+    .phone { padding: 6px 12px; border-radius: var(--rc); border: 1px solid var(--border); background: var(--bg); font-family: var(--mono); font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .stack { padding-block: 28px 48px; display: flex; flex-direction: column; gap: 20px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; }
+    .badge { display: inline-block; font-size: 12px; color: var(--accent); background: #F5ECEA; padding: 4px 10px; border-radius: 6px; font-weight: 500; margin-bottom: 12px; }
+    h1 { font-size: 28px; font-weight: 500; line-height: 1.2; margin-bottom: 10px; }
+    .desc { color: var(--muted); margin-bottom: 18px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 18px; border-radius: var(--rc); background: var(--accent); color: var(--accent-ink); font-weight: 500; font-size: 14px; }
+    .btn-b { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: var(--rc); background: var(--bg); border: 1px solid var(--border); font-size: 14px; }
+    h2 { font-size: 17px; font-weight: 500; margin-bottom: 12px; }
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+    .field label { font-size: 13px; color: var(--muted); }
+    .field input { height: 44px; padding: 0 12px; border-radius: var(--rc); border: 1px solid var(--border); background: var(--bg); font-family: inherit; font-size: 14px; }
+    .preview { padding: 12px; border-radius: var(--rc); background: var(--bg); border: 1px solid var(--border); font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+    .row { display: flex; justify-content: space-between; gap: 12px; padding-block: 10px; border-top: 1px solid var(--border); font-size: 14px; }
+    .row:first-of-type { border-top: none; padding-top: 0; }
+    .row:last-of-type { padding-bottom: 0; }
+    .footer { border-top: 1px solid var(--border); padding-block: 20px; font-size: 13px; color: var(--muted); }
+    .footer-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+  </style>
+</head>
+<body>
+  <header class="header"><div class="container header-in"><a href="#" class="brand">Три Топора<span class="city">Астрахань</span></a><a href="tel:+79619753946" class="phone">+7 961 975-39-46</a></div></header>
+  <main class="container stack">
+    <section class="card">
+      <span class="badge">Круглосуточно по предварительному звонку</span>
+      <h1>Тату-студия «Три Топора»</h1>
+      <p class="desc">Кировский район, ул. Фиолетова, 8, 2 этаж. Оценка 5.0 на 2ГИС (7 отзывов). Оплата наличными.</p>
+      <div class="btns">
+        <a href="tel:+79619753946" class="btn-a">Позвонить</a>
+        <a href="https://wa.me/79619753946" target="_blank" rel="noopener" class="btn-b">WhatsApp</a>
+        <a href="https://2gis.ru/astrakhan/firm/1126428188088187" target="_blank" rel="noopener" class="btn-b">2ГИС</a>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Написать перед звонком</h2>
+      <div class="field"><label for="idea">Идея, место и размер</label><input type="text" id="idea" placeholder="Например: плечо, ч/б, 12 см"></div>
+      <div class="preview" id="prev"></div>
+      <a href="https://wa.me/79619753946" target="_blank" rel="noopener" class="btn-a" id="wa">Отправить в WhatsApp</a>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-in"><span>Три Топора, Астрахань, ул. Фиолетова, 8</span><a href="https://2gis.ru/astrakhan/firm/1126428188088187" target="_blank" rel="noopener">2ГИС</a></div></footer>
+  <script>
+    (function () {
+      const inp = document.getElementById('idea'), prev = document.getElementById('prev'), wa = document.getElementById('wa');
+      function upd() {
+        const v = inp.value.trim();
+        const msg = 'Здравствуйте. Хочу записаться в тату-студию «Три Топора».' + (v ? ' Идея: ' + v + '.' : '');
+        prev.textContent = msg;
+        wa.href = 'https://wa.me/79619753946?text=' + encodeURIComponent(msg);
+      }
+      inp.addEventListener('input', upd); upd();
+    })();
+  </script>
+</body>
+</html>

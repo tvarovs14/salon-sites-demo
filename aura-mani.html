@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Аура Мани, студия маникюра в Хабаровске</title>
+  <meta name="description" content="Студия маникюра «Аура Мани» в Хабаровске: ул. Ким Ю Чена, 63, офис 19. Маникюр от 1 700 ₽, педикюр 2 700 ₽, брови и ресницы. Ежедневно 09:00 - 21:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #F8F6F4; --surface: #FFFFFF; --border: rgba(38,28,34,0.09); --text: #261C22; --muted: #665860; --accent: #734B5E; --accent-ink: #FFFFFF; --r: 14px; --rc: 8px; --sans: 'Plus Jakarta Sans', sans-serif; --mono: 'IBM Plex Mono', monospace; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; padding-bottom: 76px; }
+    @media (min-width: 768px) { body { padding-bottom: 0; } }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+    .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+    .container { width: 100%; max-width: 820px; margin-inline: auto; padding-inline: 16px; }
+    .header { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .header-in { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+    .brand { font-weight: 500; font-size: 16px; }
+    .city { font-size: 13px; color: var(--muted); margin-left: 8px; font-weight: 400; }
+    .phone { padding: 6px 12px; border-radius: var(--rc); border: 1px solid var(--border); background: var(--bg); font-family: var(--mono); font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .stack { padding-block: 24px 48px; display: flex; flex-direction: column; gap: 20px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; }
+    .loc { font-size: 13px; color: var(--accent); margin-bottom: 8px; }
+    h1 { font-size: 26px; font-weight: 500; line-height: 1.2; margin-bottom: 10px; }
+    .desc { color: var(--muted); margin-bottom: 16px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 18px; border-radius: var(--rc); background: var(--accent); color: var(--accent-ink); font-weight: 500; font-size: 14px; }
+    .btn-b { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: var(--rc); background: var(--bg); border: 1px solid var(--border); font-size: 14px; }
+    h2 { font-size: 17px; font-weight: 500; margin-bottom: 12px; }
+    .price-row { width: 100%; text-align: left; display: grid; grid-template-columns: 20px 1fr auto; align-items: center; gap: 12px; padding: 11px 6px; border-top: 1px solid var(--border); }
+    .price-row:first-of-type { border-top: none; }
+    .box { width: 18px; height: 18px; border-radius: 5px; border: 1px solid rgba(38,28,34,0.2); display: inline-flex; align-items: center; justify-content: center; color: #FFF; font-size: 12px; }
+    .price-row[aria-pressed="true"] .box { background: var(--accent); border-color: var(--accent); }
+    .val { font-family: var(--mono); font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .sum-bar { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .footer { border-top: 1px solid var(--border); padding-block: 20px; font-size: 13px; color: var(--muted); }
+    .footer-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+    .dock { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.96); border-top: 1px solid var(--border); padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; }
+    @media (min-width: 768px) { .dock { display: none; } }
+  </style>
+</head>
+<body>
+  <header class="header"><div class="container header-in"><a href="#" class="brand">Аура Мани<span class="city">Хабаровск</span></a><a href="tel:+79242144455" class="phone">+7 924 214-44-55</a></div></header>
+  <main class="container stack">
+    <section class="card">
+      <div class="loc">Центральный район, ул. Ким Ю Чена, 63, офис 19, 1 этаж</div>
+      <h1>Студия маникюра «Аура Мани»</h1>
+      <p class="desc">Маникюр, педикюр, брови и ламинирование ресниц у мастера Алины. Ежедневно 09:00 - 21:00 по записи. Оплата картой, наличными, переводом и по QR-коду.</p>
+      <div class="btns"><a href="tel:+79242144455" class="btn-a">Позвонить</a><a href="https://wa.me/79242144455" target="_blank" rel="noopener" class="btn-b">WhatsApp</a><a href="https://2gis.ru/khabarovsk/firm/70000001104994493" target="_blank" rel="noopener" class="btn-b">2ГИС</a></div>
+    </section>
+    <section class="card">
+      <h2>Прайс-лист (нажмите для расчёта)</h2>
+      <button type="button" class="price-row" data-p="1700" aria-pressed="false"><span class="box"></span><span>Маникюр без покрытия</span><span class="val">1 700 ₽</span></button>
+      <button type="button" class="price-row" data-p="2000" aria-pressed="false"><span class="box"></span><span>Маникюр и покрытие гель-лак</span><span class="val">2 000 ₽</span></button>
+      <button type="button" class="price-row" data-p="2200" aria-pressed="false"><span class="box"></span><span>Маникюр, покрытие и укрепление</span><span class="val">2 200 ₽</span></button>
+      <button type="button" class="price-row" data-p="2000" aria-pressed="false"><span class="box"></span><span>Мужской маникюр</span><span class="val">2 000 ₽</span></button>
+      <button type="button" class="price-row" data-p="2600" aria-pressed="false"><span class="box"></span><span>Наращивание ногтей</span><span class="val">2 600 ₽</span></button>
+      <button type="button" class="price-row" data-p="2700" aria-pressed="false"><span class="box"></span><span>Полный педикюр с покрытием гель-лак</span><span class="val">2 700 ₽</span></button>
+      <button type="button" class="price-row" data-p="1000" aria-pressed="false"><span class="box"></span><span>Коррекция бровей</span><span class="val">1 000 ₽</span></button>
+      <button type="button" class="price-row" data-p="1200" aria-pressed="false"><span class="box"></span><span>Окрашивание бровей</span><span class="val">1 200 ₽</span></button>
+      <button type="button" class="price-row" data-p="2500" aria-pressed="false"><span class="box"></span><span>Ламинирование ресниц</span><span class="val">2 500 ₽</span></button>
+      <div class="sum-bar"><span>Итого: <strong class="mono" id="dsum">0 ₽</strong></span><button type="button" class="btn-b" id="clr">Сбросить</button></div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-in"><span>Аура Мани, Хабаровск, ул. Ким Ю Чена, 63</span><a href="https://2gis.ru/khabarovsk/firm/70000001104994493" target="_blank" rel="noopener">2ГИС</a></div></footer>
+  <div class="dock"><div><div style="font-size:12px;color:var(--muted)" id="mcnt">Услуги не выбраны</div><div class="mono" id="msum">0 ₽</div></div><a href="tel:+79242144455" class="btn-a">Записаться</a></div>
+  <script>
+    (function () {
+      const rows = document.querySelectorAll('.price-row'), dsum = document.getElementById('dsum'), msum = document.getElementById('msum'), mcnt = document.getElementById('mcnt'), clr = document.getElementById('clr');
+      function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'; }
+      function upd() {
+        let c = 0, s = 0;
+        rows.forEach(function (r) { if (r.getAttribute('aria-pressed') === 'true') { c++; s += Number(r.getAttribute('data-p')); } });
+        dsum.textContent = fmt(s); msum.textContent = fmt(s); mcnt.textContent = c ? 'Выбрано: ' + c : 'Услуги не выбраны';
+      }
+      rows.forEach(function (r) { r.addEventListener('click', function () { r.setAttribute('aria-pressed', r.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); upd(); }); });
+      clr.addEventListener('click', function () { rows.forEach(function (r) { r.setAttribute('aria-pressed', 'false'); }); upd(); });
+    })();
+  </script>
+</body>
+</html>

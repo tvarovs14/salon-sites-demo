@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barber studio, барбершоп в Новокузнецке</title>
+  <meta name="description" content="Barber studio в Новокузнецке: пр. Николая Ермакова, 26. Мужские стрижки от 1 000 ₽ и детские стрижки. Ежедневно 09:00 - 21:00 по записи.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #13171C; --surface: #1C2229; --border: rgba(236,240,245,0.09); --text: #ECF0F5; --muted: #94A0AD; --accent: #D48C54; --accent-ink: #13171C; --r: 14px; --rc: 8px; --sans: 'Inter', sans-serif; --mono: 'IBM Plex Mono', monospace; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; padding-bottom: 76px; }
+    @media (min-width: 768px) { body { padding-bottom: 0; } }
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+    .container { width: 100%; max-width: 960px; margin-inline: auto; padding-inline: 16px; }
+    .header { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .header-in { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+    .brand { font-weight: 500; font-size: 16px; }
+    .city { font-size: 13px; color: var(--muted); margin-left: 8px; font-weight: 400; }
+    .phone { padding: 6px 12px; border-radius: var(--rc); border: 1px solid var(--border); background: var(--bg); font-family: var(--mono); font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .hero-split { padding-block: 32px; display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; }
+    @media (min-width: 780px) { .hero-split { padding-block: 48px; grid-template-columns: 1.2fr 0.8fr; gap: 36px; } }
+    .loc { font-size: 13px; color: var(--accent); margin-bottom: 10px; }
+    h1 { font-size: 30px; font-weight: 500; line-height: 1.18; margin-bottom: 12px; }
+    .desc { color: var(--muted); margin-bottom: 20px; max-width: 48ch; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 18px; border-radius: var(--rc); background: var(--accent); color: var(--accent-ink); font-weight: 500; font-size: 14px; }
+    .btn-b { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: var(--rc); background: var(--surface); border: 1px solid var(--border); font-size: 14px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; }
+    .row { display: flex; justify-content: space-between; gap: 12px; padding-block: 10px; border-top: 1px solid var(--border); font-size: 14px; }
+    .row:first-of-type { border-top: none; padding-top: 0; }
+    .row:last-of-type { padding-bottom: 0; }
+    .srv-grid { display: grid; grid-template-columns: 1fr; gap: 14px; padding-bottom: 44px; }
+    @media (min-width: 600px) { .srv-grid { grid-template-columns: 1fr 1fr; } }
+    .srv-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; display: flex; justify-content: space-between; align-items: baseline; }
+    .price { font-family: var(--mono); color: var(--accent); font-weight: 500; }
+    .footer { border-top: 1px solid var(--border); padding-block: 20px; font-size: 13px; color: var(--muted); }
+    .footer-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+    .dock { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(19,23,28,0.96); border-top: 1px solid var(--border); padding: 10px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (min-width: 768px) { .dock { display: none; } }
+  </style>
+</head>
+<body>
+  <header class="header"><div class="container header-in"><a href="#" class="brand">Barber studio<span class="city">Новокузнецк</span></a><a href="tel:+79515879755" class="phone">+7 951 587-97-55</a></div></header>
+  <main class="container">
+    <section class="hero-split">
+      <div>
+        <div class="loc">Центральный район, пр. Николая Ермакова, 26</div>
+        <h1>Мужские и детские стрижки в Barber studio</h1>
+        <p class="desc">Работаем ежедневно с 09:00 до 21:00 по предварительной записи. Оценка 5.0 на 2ГИС по 10 отзывам.</p>
+        <div class="btns">
+          <a href="tel:+79515879755" class="btn-a">Позвонить</a>
+          <a href="https://wa.me/79515879755" target="_blank" rel="noopener" class="btn-b">WhatsApp</a>
+          <a href="https://2gis.ru/novokuznetsk/firm/70000001094731773" target="_blank" rel="noopener" class="btn-b">2ГИС</a>
+        </div>
+      </div>
+      <aside class="card">
+        <div class="row"><span>График</span><span class="mono">09:00 - 21:00</span></div>
+        <div class="row"><span>Основной тел.</span><a href="tel:+79515879755" class="mono">+7 951 587-97-55</a></div>
+        <div class="row"><span>Доп. тел.</span><a href="tel:+79134223022" class="mono">+7 913 422-30-22</a></div>
+        <div class="row"><span>Индекс</span><span class="mono">654080</span></div>
+      </aside>
+    </section>
+    <section class="srv-grid">
+      <div class="srv-card"><span>Мужская стрижка</span><span class="price">от 1 000 ₽</span></div>
+      <div class="srv-card"><span>Детская стрижка</span><span class="price">По записи</span></div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-in"><span>Barber studio, Новокузнецк, пр. Николая Ермакова, 26</span><a href="https://2gis.ru/novokuznetsk/firm/70000001094731773" target="_blank" rel="noopener">2ГИС</a></div></footer>
+  <div class="dock"><a href="tel:+79515879755" class="btn-a">Позвонить</a><a href="https://wa.me/79515879755" target="_blank" rel="noopener" class="btn-b">WhatsApp</a></div>
+</body>
+</html>
