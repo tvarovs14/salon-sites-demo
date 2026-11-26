@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Студия 85, маникюр, ресницы и брови в Краснодаре</title>
+  <meta name="description" content="Студия красоты «Студия 85» в Краснодаре: Новороссийская ул., 90/2 к1. Маникюр от 1 200 ₽, педикюр, брови, ресницы, мужские стрижки. Ежедневно 09:00 - 21:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #F7F5F2;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #ECE9E4;
+      --border: rgba(30, 34, 31, 0.09);
+      --border-strong: rgba(30, 34, 31, 0.18);
+      --text-primary: #1E221F;
+      --text-secondary: #565E58;
+      --text-muted: #828A84;
+      --accent: #4C6B5B;
+      --accent-hover: #3D5749;
+      --accent-tint: #EEF3F0;
+      --radius-panel: 14px;
+      --radius-control: 8px;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+    @media (min-width: 768px) { body { padding-bottom: 0; } }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .icon { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; fill: none; flex-shrink: 0; }
+    .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    .container { width: 100%; max-width: 880px; margin-inline: auto; padding-inline: 16px; }
+    @media (min-width: 768px) { .container { padding-inline: 24px; } }
+
+    .site-header { background-color: var(--bg-surface); border-bottom: 1px solid var(--border); }
+    .header-inner { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+    .brand { font-weight: 500; font-size: 16px; display: inline-flex; align-items: center; gap: 8px; }
+    .brand-tag { font-size: 12px; color: var(--accent); background-color: var(--accent-tint); padding: 3px 8px; border-radius: 6px; font-weight: 500; }
+    .phone-chip {
+      display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 6px 12px;
+      border-radius: var(--radius-control); border: 1px solid var(--border); background-color: var(--bg-page);
+      font-family: var(--font-mono); font-size: 13px; font-weight: 500; white-space: nowrap;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease);
+    }
+    .phone-chip:hover { border-color: var(--border-strong); background-color: var(--bg-subtle); }
+    .phone-chip .icon { color: var(--accent); }
+
+    .hero { padding-block: 28px 24px; }
+    .hero-card { background-color: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-panel); padding: 20px; }
+    @media (min-width: 640px) { .hero-card { padding: 28px; } }
+    .hero-title { font-size: 26px; font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 10px; }
+    @media (min-width: 640px) { .hero-title { font-size: 32px; } }
+    .hero-desc { color: var(--text-secondary); max-width: 56ch; margin-bottom: 18px; }
+
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 18px;
+      border-radius: var(--radius-control); background-color: var(--accent); color: #FFFFFF; font-size: 14px; font-weight: 500;
+      transition: background-color 150ms var(--ease), transform 120ms var(--ease);
+    }
+    .btn-primary:hover { background-color: var(--accent-hover); }
+    .btn-primary:active, .btn-secondary:active { transform: scale(0.98); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 16px;
+      border-radius: var(--radius-control); background-color: var(--bg-page); border: 1px solid var(--border);
+      color: var(--text-primary); font-size: 14px;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease), transform 120ms var(--ease);
+    }
+    .btn-secondary:hover { border-color: var(--border-strong); background-color: var(--bg-subtle); }
+
+    .panel { background-color: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-panel); padding: 20px; margin-bottom: 20px; }
+    @media (min-width: 640px) { .panel { padding: 24px; } }
+    .panel-title { font-size: 18px; font-weight: 500; margin-bottom: 12px; }
+
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .tab-btn {
+      min-height: 36px; padding: 6px 12px; border-radius: var(--radius-control); background-color: var(--bg-page);
+      border: 1px solid var(--border); color: var(--text-secondary); font-size: 13px;
+      transition: background-color 150ms var(--ease), color 150ms var(--ease), border-color 150ms var(--ease);
+    }
+    .tab-btn[aria-pressed="true"] { background-color: var(--accent-tint); border-color: var(--accent); color: var(--accent); font-weight: 500; }
+
+    .price-row {
+      width: 100%; text-align: left; display: grid; grid-template-columns: 20px 1fr auto; align-items: center;
+      gap: 12px; padding: 12px 8px; border-top: 1px solid var(--border); border-radius: 6px;
+      transition: background-color 150ms var(--ease);
+    }
+    .price-row:first-of-type { border-top: none; }
+    .price-row:hover { background-color: var(--bg-page); }
+    .price-row[hidden] { display: none; }
+    .check-box {
+      width: 18px; height: 18px; border-radius: 5px; border: 1px solid var(--border-strong);
+      display: inline-flex; align-items: center; justify-content: center; color: #FFFFFF;
+    }
+    .price-row[aria-pressed="true"] .check-box { background-color: var(--accent); border-color: var(--accent); }
+    .price-val { font-family: var(--font-mono); font-size: 13px; font-weight: 500; white-space: nowrap; }
+
+    .sum-bar { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+
+    .two-col { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
+    @media (min-width: 640px) { .two-col { grid-template-columns: 1fr 1fr; } }
+    .sub-card { background-color: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-panel); padding: 20px; }
+    .sub-text { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; }
+    .sub-text:last-child { margin-bottom: 0; }
+
+    .site-footer { border-top: 1px solid var(--border); padding-block: 24px; font-size: 13px; color: var(--text-muted); }
+    .footer-inner { display: flex; flex-direction: column; gap: 8px; }
+    @media (min-width: 640px) { .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; } }
+
+    .mobile-dock {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px); border-top: 1px solid var(--border); padding: 10px 16px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    @media (min-width: 768px) { .mobile-dock { display: none; } }
+    .dock-sub { font-size: 12px; color: var(--text-muted); }
+    .dock-sum { font-family: var(--font-mono); font-size: 15px; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span>Студия 85</span>
+        <span class="brand-tag">Краснодар</span>
+      </a>
+      <a href="tel:+79898153299" class="phone-chip">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+7 989 815-32-99</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1 class="hero-title">Маникюр, педикюр, брови, ресницы и стрижки в Черёмушках</h1>
+        <p class="hero-desc">
+          Студия красоты на Новороссийской, 90/2 к1 (цокольный этаж). Принимаем ежедневно с 09:00 до 21:00 по предварительной записи. Оценка 4.9 на 2ГИС по 27 отзывам.
+        </p>
+        <div class="btn-row">
+          <a href="tel:+79898153299" class="btn-primary">Записаться по телефону</a>
+          <a href="https://wa.me/79898153299" target="_blank" rel="noopener" class="btn-secondary">WhatsApp</a>
+          <a href="https://2gis.ru/krasnodar/firm/70000001060568880" target="_blank" rel="noopener" class="btn-secondary">2ГИС</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Прайс-лист студии</h2>
+      <div class="tabs" role="group" aria-label="Категории">
+        <button type="button" class="tab-btn" data-cat="all" aria-pressed="true">Все услуги</button>
+        <button type="button" class="tab-btn" data-cat="nails" aria-pressed="false">Ногти</button>
+        <button type="button" class="tab-btn" data-cat="brows" aria-pressed="false">Брови и ресницы</button>
+        <button type="button" class="tab-btn" data-cat="hair" aria-pressed="false">Стрижки</button>
+      </div>
+
+      <button type="button" class="price-row" data-cat="nails" data-price="1200" aria-pressed="false">
+        <span class="check-box" aria-hidden="true"><svg class="icon" style="width:12px;height:12px" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span>Маникюр</span>
+        <span class="price-val">1 200 ₽</span>
+      </button>
+      <button type="button" class="price-row" data-cat="nails" data-price="2100" aria-pressed="false">
+        <span class="check-box" aria-hidden="true"><svg class="icon" style="width:12px;height:12px" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span>Маникюр с покрытием гель-лаком</span>
+        <span class="price-val">2 100 ₽</span>
+      </button>
+      <button type="button" class="price-row" data-cat="nails" data-price="1900" aria-pressed="false">
+        <span class="check-box" aria-hidden="true"><svg class="icon" style="width:12px;height:12px" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span>Педикюр с покрытием гель-лаком</span>
+        <span class="price-val">от 1 900 ₽</span>
+      </button>
+      <button type="button" class="price-row" data-cat="brows" data-price="1800" aria-pressed="false">
+        <span class="check-box" aria-hidden="true"><svg class="icon" style="width:12px;height:12px" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span>Наращивание ресниц</span>
+        <span class="price-val">от 1 800 ₽</span>
+      </button>
+      <button type="button" class="price-row" data-cat="brows" data-price="800" aria-pressed="false">
+        <span class="check-box" aria-hidden="true"><svg class="icon" style="width:12px;height:12px" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span>Оформление бровей</span>
+        <span class="price-val">от 800 ₽</span>
+      </button>
+      <button type="button" class="price-row" data-cat="brows" data-price="1900" aria-pressed="false">
+        <span class="check-box" aria-hidden="true"><svg class="icon" style="width:12px;height:12px" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span>Долговременная укладка, уход, коррекция и окрашивание</span>
+        <span class="price-val">1 900 ₽</span>
+      </button>
+      <button type="button" class="price-row" data-cat="brows" data-price="1700" aria-pressed="false">
+        <span class="check-box" aria-hidden="true"><svg class="icon" style="width:12px;height:12px" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span>Ламинирование ресниц</span>
+        <span class="price-val">от 1 700 ₽</span>
+      </button>
+      <button type="button" class="price-row" data-cat="brows" data-price="2000" aria-pressed="false">
+        <span class="check-box" aria-hidden="true"><svg class="icon" style="width:12px;height:12px" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span>Ламинирование ресниц, ботокс и окрашивание</span>
+        <span class="price-val">2 000 ₽</span>
+      </button>
+      <button type="button" class="price-row" data-cat="hair" data-price="800" aria-pressed="false">
+        <span class="check-box" aria-hidden="true"><svg class="icon" style="width:12px;height:12px" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span>Стрижки мужские</span>
+        <span class="price-val">от 800 ₽</span>
+      </button>
+
+      <div class="sum-bar">
+        <div>
+          <span style="font-size:13px;color:var(--text-secondary)">Итого (от): </span>
+          <strong class="mono" id="desktop-sum" style="font-weight:500">0 ₽</strong>
+        </div>
+        <button type="button" class="btn-secondary" id="clear-btn">Сбросить</button>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div class="sub-card">
+        <h2 class="panel-title">Мастера и отзывы</h2>
+        <p class="sub-text">Маникюр и педикюр ведут Виктория и Анастасия, макияж и укладки выполняет Сабина.</p>
+        <p class="sub-text">Клиентки отмечают тонкое и прочное покрытие без отслоек, восстановление сложной ногтевой пластины и тёплую атмосферу.</p>
+      </div>
+      <div class="sub-card">
+        <h2 class="panel-title">Адрес и оплата</h2>
+        <p class="sub-text">Новороссийская улица, 90/2 к1, цокольный этаж, индекс 350040. Остановка «Шевченко» в 800 м, рядом 9 парковок.</p>
+        <p class="sub-text">Оплата наличным расчётом и переводом с карты. Удобный вход с детской коляской.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>Студия 85, Краснодар, Новороссийская ул., 90/2 к1</div>
+      <div><a href="https://2gis.ru/krasnodar/firm/70000001060568880" target="_blank" rel="noopener">Карточка в 2ГИС</a></div>
+    </div>
+  </footer>
+
+  <div class="mobile-dock">
+    <div>
+      <div class="dock-sub" id="dock-count">Услуги не выбраны</div>
+      <div class="dock-sum" id="dock-sum">0 ₽</div>
+    </div>
+    <a href="tel:+79898153299" class="btn-primary">Записаться</a>
+  </div>
+
+  <script>
+    (function () {
+      const tabs = document.querySelectorAll('.tab-btn');
+      const rows = document.querySelectorAll('.price-row');
+      const desktopSum = document.getElementById('desktop-sum');
+      const dockCount = document.getElementById('dock-count');
+      const dockSum = document.getElementById('dock-sum');
+      const clearBtn = document.getElementById('clear-btn');
+
+      function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'; }
+
+      function update() {
+        let count = 0; let sum = 0;
+        rows.forEach(function (r) {
+          if (r.getAttribute('aria-pressed') === 'true') {
+            count += 1; sum += Number(r.getAttribute('data-price'));
+          }
+        });
+        desktopSum.textContent = fmt(sum);
+        dockSum.textContent = fmt(sum);
+        dockCount.textContent = count === 0 ? 'Услуги не выбраны' : 'Выбрано: ' + count;
+      }
+
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () {
+          const cat = t.getAttribute('data-cat');
+          tabs.forEach(function (o) { o.setAttribute('aria-pressed', o === t ? 'true' : 'false'); });
+          rows.forEach(function (r) { r.hidden = !(cat === 'all' || r.getAttribute('data-cat') === cat); });
+        });
+      });
+
+      rows.forEach(function (r) {
+        r.addEventListener('click', function () {
+          r.setAttribute('aria-pressed', r.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+          update();
+        });
+      });
+
+      clearBtn.addEventListener('click', function () {
+        rows.forEach(function (r) { r.setAttribute('aria-pressed', 'false'); });
+        update();
+      });
+    })();
+  </script>
+</body>
+</html>

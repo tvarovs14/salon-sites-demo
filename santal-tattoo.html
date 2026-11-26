@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santal tattoo, тату-студия в Нижнем Новгороде</title>
+  <meta name="description" content="Тату-студия Santal tattoo в Нижнем Новгороде: Республиканская ул., 43 к5, 1 этаж. Татуировки, перекрытие и удаление тату и перманента. Ежедневно 11:00 - 21:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #F3F4F5;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #E6E9EC;
+      --border: rgba(24, 32, 40, 0.09);
+      --border-strong: rgba(24, 32, 40, 0.18);
+      --text-primary: #182028;
+      --text-secondary: #515C66;
+      --text-muted: #7F8A94;
+      --accent: #3A4A58;
+      --accent-hover: #2C3945;
+      --accent-tint: #EDF0F3;
+      --radius-panel: 14px;
+      --radius-control: 8px;
+      --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .icon { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; fill: none; flex-shrink: 0; }
+    .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    .container { width: 100%; max-width: 960px; margin-inline: auto; padding-inline: 16px; }
+    @media (min-width: 768px) { .container { padding-inline: 28px; } }
+
+    .site-header { background-color: var(--bg-surface); border-bottom: 1px solid var(--border); }
+    .header-inner { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+    .brand { font-weight: 500; font-size: 16px; display: inline-flex; align-items: center; gap: 8px; }
+    .brand-city { font-size: 13px; color: var(--text-muted); font-weight: 400; }
+    .header-phone {
+      display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px;
+      border-radius: var(--radius-control); background-color: var(--bg-page); border: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 13px; font-weight: 500; white-space: nowrap;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease);
+    }
+    .header-phone:hover { border-color: var(--border-strong); background-color: var(--bg-subtle); }
+
+    .grid-layout { padding-block: 28px 48px; display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; }
+    @media (min-width: 820px) { .grid-layout { padding-block: 44px 64px; grid-template-columns: 1.15fr 0.85fr; gap: 28px; } }
+    .col { display: flex; flex-direction: column; gap: 20px; }
+
+    .panel { background-color: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-panel); padding: 20px; }
+    @media (min-width: 640px) { .panel { padding: 24px; } }
+    .panel-title { font-size: 17px; font-weight: 500; margin-bottom: 14px; }
+
+    .hero-loc { font-size: 13px; color: var(--text-secondary); margin-bottom: 10px; }
+    .hero-title { font-size: 28px; font-weight: 500; line-height: 1.18; letter-spacing: -0.02em; margin-bottom: 12px; }
+    @media (min-width: 640px) { .hero-title { font-size: 34px; } }
+    .hero-desc { color: var(--text-secondary); margin-bottom: 20px; max-width: 52ch; }
+
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 18px;
+      border-radius: var(--radius-control); background-color: var(--accent); color: #FFFFFF; font-size: 14px; font-weight: 500;
+      transition: background-color 150ms var(--ease), transform 120ms var(--ease);
+    }
+    .btn-primary:hover { background-color: var(--accent-hover); }
+    .btn-primary:active, .btn-secondary:active { transform: scale(0.98); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 16px;
+      border-radius: var(--radius-control); background-color: var(--bg-page); border: 1px solid var(--border);
+      color: var(--text-primary); font-size: 14px;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease), transform 120ms var(--ease);
+    }
+    .btn-secondary:hover { border-color: var(--border-strong); background-color: var(--bg-subtle); }
+
+    .item-box { padding: 14px 16px; border-radius: 10px; background-color: var(--bg-page); border: 1px solid var(--border); margin-bottom: 10px; }
+    .item-box:last-child { margin-bottom: 0; }
+    .item-name { font-weight: 500; margin-bottom: 4px; }
+    .item-desc { font-size: 13px; color: var(--text-secondary); }
+
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .field label { font-size: 13px; color: var(--text-secondary); }
+    .field select, .field input {
+      height: 44px; padding: 0 12px; border-radius: var(--radius-control); border: 1px solid var(--border);
+      background-color: var(--bg-page); font-family: inherit; font-size: 14px; color: var(--text-primary);
+    }
+    .preview { padding: 12px 14px; border-radius: var(--radius-control); background-color: var(--bg-page); border: 1px solid var(--border); font-size: 13px; color: var(--text-secondary); margin-bottom: 14px; }
+
+    .info-line { display: flex; justify-content: space-between; gap: 12px; padding-block: 10px; border-top: 1px solid var(--border); font-size: 14px; }
+    .info-line:first-of-type { border-top: none; padding-top: 0; }
+    .info-line:last-of-type { padding-bottom: 0; }
+    .info-key { color: var(--text-muted); font-size: 13px; }
+    .info-val { text-align: right; }
+
+    .site-footer { border-top: 1px solid var(--border); padding-block: 24px; font-size: 13px; color: var(--text-muted); }
+    .footer-inner { display: flex; flex-direction: column; gap: 8px; }
+    @media (min-width: 640px) { .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span>Santal tattoo</span>
+        <span class="brand-city">Нижний Новгород</span>
+      </a>
+      <a href="tel:+79601732977" class="header-phone">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+7 960 173-29-77</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container grid-layout">
+    <div class="col">
+      <section class="panel">
+        <div class="hero-loc">Советский район, Республиканская улица, 43 к5, 1 этаж</div>
+        <h1 class="hero-title">Тату-студия Santal tattoo</h1>
+        <p class="hero-desc">
+          Художественная татуировка, перекрытие старых работ, удаление татуировок и перманента. Принимает мастер Алексей ежедневно с 11:00 до 21:00 по предварительной записи.
+        </p>
+        <div class="btn-row">
+          <a href="tel:+79601732977" class="btn-primary">Позвонить</a>
+          <a href="https://wa.me/79601732977" target="_blank" rel="noopener" class="btn-secondary">WhatsApp</a>
+          <a href="https://2gis.ru/n_novgorod/firm/2674540559884339" target="_blank" rel="noopener" class="btn-secondary">2ГИС</a>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel-title">Услуги студии</h2>
+        <div class="item-box">
+          <div class="item-name">Художественная татуировка</div>
+          <div class="item-desc">Индивидуальный подход, аккуратная работа с минимальной болезненностью, воплощение сложных идей</div>
+        </div>
+        <div class="item-box">
+          <div class="item-name">Перекрытие и удаление татуировок</div>
+          <div class="item-desc">Оценка старой работы, осветление под перекрытие или полное удаление тату и перманента</div>
+        </div>
+        <div class="item-box">
+          <div class="item-name">Уютная обстановка</div>
+          <div class="item-desc">Кондиционер, кофемашина, оценка 5.0 на 2ГИС по 30 оценкам и 25 отзывам</div>
+        </div>
+      </section>
+    </div>
+
+    <aside class="col">
+      <section class="panel">
+        <h2 class="panel-title">Подготовка к консультации</h2>
+        <div class="field">
+          <label for="task-type">Задача</label>
+          <select id="task-type">
+            <option value="новая татуировка">Новая татуировка</option>
+            <option value="перекрытие старой татуировки">Перекрытие татуировки</option>
+            <option value="удаление татуировки или перманента">Удаление тату / перманента</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="task-note">Место и размер</label>
+          <input type="text" id="task-note" placeholder="Например: предплечье, около 15 см">
+        </div>
+        <div class="preview" id="wa-preview"></div>
+        <a href="https://wa.me/79601732977" target="_blank" rel="noopener" class="btn-primary" id="wa-link">Написать в WhatsApp</a>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel-title">Условия и адрес</h2>
+        <div class="info-line">
+          <span class="info-key">График</span>
+          <span class="info-val mono">Пн - Вс: 11:00 - 21:00</span>
+        </div>
+        <div class="info-line">
+          <span class="info-key">Адрес</span>
+          <span class="info-val">Республиканская ул., 43 к5, 1 этаж</span>
+        </div>
+        <div class="info-line">
+          <span class="info-key">Остановка</span>
+          <span class="info-val">«Больница №35» (200 м, 14 парковок)</span>
+        </div>
+        <div class="info-line">
+          <span class="info-key">Доступность</span>
+          <span class="info-val">Удобный вход с коляской</span>
+        </div>
+        <div class="info-line">
+          <span class="info-key">Оплата</span>
+          <span class="info-val">Наличные, перевод, QR-код</span>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>Santal tattoo, Нижний Новгород, Республиканская ул., 43 к5</div>
+      <div><a href="https://2gis.ru/n_novgorod/firm/2674540559884339" target="_blank" rel="noopener">Профиль в 2ГИС</a></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const taskType = document.getElementById('task-type');
+      const taskNote = document.getElementById('task-note');
+      const preview = document.getElementById('wa-preview');
+      const waLink = document.getElementById('wa-link');
+
+      function update() {
+        const note = taskNote.value.trim();
+        let msg = 'Здравствуйте, Алексей. Интересует ' + taskType.value + ' в студии Santal tattoo.';
+        if (note) { msg += ' Детали: ' + note + '.'; }
+        preview.textContent = msg;
+        waLink.href = 'https://wa.me/79601732977?text=' + encodeURIComponent(msg);
+      }
+
+      taskType.addEventListener('change', update);
+      taskNote.addEventListener('input', update);
+      update();
+    })();
+  </script>
+</body>
+</html>
