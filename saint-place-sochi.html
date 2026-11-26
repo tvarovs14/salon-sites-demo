@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saint Place Studio, студия красоты в Сочи</title>
+  <meta name="description" content="Saint Place Studio в Сочи: ул. Роз, 6/6а, 2 этаж. Брови, вечерние причёски, окрашивание, маникюр и педикюр. Открыто с 10:00 по записи.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #F4F5F7; --surface: #FFFFFF; --border: rgba(24,30,38,0.09); --text: #181E26; --muted: #58626E; --accent: #384C63; --accent-ink: #FFFFFF; --r: 14px; --rc: 8px; --sans: 'Golos Text', sans-serif; --mono: 'JetBrains Mono', monospace; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+    .container { width: 100%; max-width: 780px; margin-inline: auto; padding-inline: 16px; }
+    .header { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .header-in { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+    .brand { font-weight: 500; font-size: 16px; }
+    .city { font-size: 13px; color: var(--muted); margin-left: 8px; font-weight: 400; }
+    .phone { padding: 6px 12px; border-radius: var(--rc); border: 1px solid var(--border); background: var(--bg); font-family: var(--mono); font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .stack { padding-block: 28px 48px; display: flex; flex-direction: column; gap: 20px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; }
+    .loc { font-size: 13px; color: var(--accent); margin-bottom: 8px; }
+    h1 { font-size: 28px; font-weight: 500; line-height: 1.2; margin-bottom: 10px; }
+    .desc { color: var(--muted); margin-bottom: 18px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 18px; border-radius: var(--rc); background: var(--accent); color: var(--accent-ink); font-weight: 500; font-size: 14px; }
+    .btn-b { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: var(--rc); background: var(--bg); border: 1px solid var(--border); font-size: 14px; }
+    h2 { font-size: 17px; font-weight: 500; margin-bottom: 12px; }
+    .row { display: flex; justify-content: space-between; gap: 12px; padding-block: 10px; border-top: 1px solid var(--border); font-size: 14px; }
+    .row:first-of-type { border-top: none; padding-top: 0; }
+    .footer { border-top: 1px solid var(--border); padding-block: 20px; font-size: 13px; color: var(--muted); }
+    .footer-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+  </style>
+</head>
+<body>
+  <header class="header"><div class="container header-in"><a href="#" class="brand">Saint Place Studio<span class="city">Сочи</span></a><a href="tel:+79897524343" class="phone">+7 989 752-43-43</a></div></header>
+  <main class="container stack">
+    <section class="card">
+      <div class="loc">Центральный район, ул. Роз, 6/6а, 2 этаж</div>
+      <h1>Saint Place Studio</h1>
+      <p class="desc">Свадебные и вечерние причёски, окрашивание, коррекция бровей, маникюр и педикюр. Открыто с 10:00 по предварительной записи.</p>
+      <div class="btns"><a href="tel:+79897524343" class="btn-a">Позвонить</a><a href="https://wa.me/79897524343" target="_blank" rel="noopener" class="btn-b">WhatsApp</a><a href="https://2gis.ru/sochi/firm/70000001036053451" target="_blank" rel="noopener" class="btn-b">2ГИС</a></div>
+    </section>
+    <section class="card">
+      <h2>Мастера и детали</h2>
+      <div class="row"><span>Брови, макияж и волосы</span><span>Екатерина, Елена Анфиногенова, Елена Сиушева, Лола, Дарья</span></div>
+      <div class="row"><span>Ногтевой сервис</span><span>Екатерина, Анастасия, Юлия</span></div>
+      <div class="row"><span>Рейтинг на 2ГИС</span><span class="mono">4.7 (23 отзыва)</span></div>
+      <div class="row"><span>Оплата</span><span>Карта, наличные, перевод, QR-код</span></div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-in"><span>Saint Place Studio, Сочи, ул. Роз, 6/6а</span><a href="https://2gis.ru/sochi/firm/70000001036053451" target="_blank" rel="noopener">2ГИС</a></div></footer>
+</body>
+</html>

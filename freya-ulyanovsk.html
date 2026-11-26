@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фрейя, барбершоп и онлайн-запись в Ульяновске</title>
+  <meta name="description" content="Барбершоп «Фрейя» в Ульяновске: ул. Радищева, 156, цокольный этаж. Мужские стрижки, оформление бороды и уход. Онлайн-запись ежедневно с 10:00 до 20:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #141619;
+      --surface: #1C1F24;
+      --elevated: #24282F;
+      --border: rgba(238, 241, 245, 0.09);
+      --border-strong: rgba(238, 241, 245, 0.18);
+      --text: #EEF1F5;
+      --text-sec: #A1A9B4;
+      --muted: #6E7782;
+      --accent: #C89D66;
+      --accent-hover: #D6AD77;
+      --accent-ink: #141619;
+      --r-lg: 16px;
+      --r-md: 12px;
+      --r-sm: 8px;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, monospace;
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+    @media (min-width: 768px) { body { padding-bottom: 0; } }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .icon {
+      width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5;
+      stroke-linecap: round; stroke-linejoin: round; fill: none; flex-shrink: 0;
+    }
+    .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+    .container { width: 100%; max-width: 1040px; margin-inline: auto; padding-inline: 16px; }
+    @media (min-width: 768px) { .container { padding-inline: 28px; } }
+
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 40;
+      background-color: rgba(20, 22, 25, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; font-size: 16px; }
+    .brand-mark {
+      width: 30px; height: 30px; border-radius: var(--r-sm);
+      background-color: var(--elevated); border: 1px solid var(--border-strong); color: var(--accent);
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .header-nav { display: none; align-items: center; gap: 24px; font-size: 14px; color: var(--text-sec); }
+    .header-nav a:hover { color: var(--text); }
+    @media (min-width: 768px) { .header-nav { display: flex; } }
+    .header-phone {
+      display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 6px 12px;
+      border-radius: var(--r-sm); background-color: var(--surface); border: 1px solid var(--border);
+      font-family: var(--mono); font-size: 13px; font-weight: 500; white-space: nowrap;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease);
+    }
+    .header-phone:hover { border-color: var(--border-strong); background-color: var(--elevated); }
+    .header-phone .icon { color: var(--accent); }
+
+    /* Hero */
+    .hero { padding-block: 32px 36px; }
+    @media (min-width: 768px) { .hero { padding-block: 52px 48px; } }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; }
+    @media (min-width: 840px) { .hero-grid { grid-template-columns: 1.15fr 0.85fr; gap: 40px; } }
+    .place-pill {
+      display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--accent); margin-bottom: 14px;
+    }
+    .hero-title {
+      font-size: 32px; font-weight: 500; line-height: 1.16; letter-spacing: -0.02em; margin-bottom: 14px;
+    }
+    @media (min-width: 768px) { .hero-title { font-size: 42px; } }
+    .hero-desc { font-size: 15px; color: var(--text-sec); max-width: 48ch; margin-bottom: 24px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 10px 20px; border-radius: var(--r-sm);
+      background-color: var(--accent); color: var(--accent-ink); font-size: 14px; font-weight: 500;
+      transition: background-color 150ms var(--ease), transform 120ms var(--ease);
+    }
+    .btn-primary:hover { background-color: var(--accent-hover); }
+    .btn-primary:active, .btn-secondary:active { transform: scale(0.98); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 10px 18px; border-radius: var(--r-sm);
+      background-color: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 14px;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease), transform 120ms var(--ease);
+    }
+    .btn-secondary:hover { border-color: var(--border-strong); background-color: var(--elevated); }
+
+    /* Info card */
+    .info-card {
+      background-color: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px;
+    }
+    .info-head {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 14px;
+    }
+    .info-title { font-size: 15px; font-weight: 500; }
+    .status-badge {
+      font-size: 12px; color: var(--accent); background-color: rgba(200, 157, 102, 0.12);
+      padding: 4px 10px; border-radius: 6px; font-weight: 500;
+    }
+    .info-rows { display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
+    .info-row { display: flex; align-items: flex-start; gap: 10px; }
+    .info-row .icon { color: var(--muted); margin-top: 2px; }
+    .info-label { display: block; font-size: 12px; color: var(--muted); }
+
+    /* Sections */
+    .section { padding-block: 32px; border-top: 1px solid var(--border); }
+    @media (min-width: 768px) { .section { padding-block: 48px; } }
+    .section-head { margin-bottom: 20px; }
+    .section-title { font-size: 22px; font-weight: 500; margin-bottom: 6px; }
+    .section-sub { font-size: 14px; color: var(--text-sec); }
+
+    /* Booking Wizard */
+    .booking-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 840px) { .booking-grid { grid-template-columns: 1.25fr 0.75fr; gap: 24px; } }
+    .panel {
+      background-color: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 20px;
+    }
+    @media (min-width: 640px) { .panel { padding: 24px; } }
+    .step-label { font-size: 13px; color: var(--accent); font-family: var(--mono); margin-bottom: 10px; display: block; }
+    .service-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 24px; }
+    @media (min-width: 560px) { .service-grid { grid-template-columns: 1fr 1fr; } }
+    .srv-btn {
+      text-align: left; padding: 14px 16px; border-radius: var(--r-md);
+      background-color: var(--bg); border: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 6px;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease);
+    }
+    .srv-btn:hover { border-color: var(--border-strong); }
+    .srv-btn[aria-pressed="true"] {
+      border-color: var(--accent); background-color: rgba(200, 157, 102, 0.08);
+    }
+    .srv-name { font-weight: 500; font-size: 15px; }
+    .srv-meta { font-size: 13px; color: var(--text-sec); font-family: var(--mono); }
+
+    .date-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .date-btn {
+      min-height: 40px; padding: 8px 14px; border-radius: var(--r-sm);
+      background-color: var(--bg); border: 1px solid var(--border); font-size: 13px;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease);
+    }
+    .date-btn[aria-pressed="true"] {
+      border-color: var(--accent); color: var(--accent); background-color: rgba(200, 157, 102, 0.10); font-weight: 500;
+    }
+
+    .slots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 24px; }
+    @media (min-width: 560px) { .slots-grid { grid-template-columns: repeat(5, 1fr); } }
+    .slot-btn {
+      min-height: 40px; padding: 8px; border-radius: var(--r-sm);
+      background-color: var(--bg); border: 1px solid var(--border);
+      font-family: var(--mono); font-size: 13px; text-align: center;
+      transition: border-color 150ms var(--ease), background-color 150ms var(--ease);
+    }
+    .slot-btn[aria-pressed="true"] {
+      background-color: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 500;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    @media (min-width: 560px) { .form-row { grid-template-columns: 1fr 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 13px; color: var(--text-sec); }
+    .field input {
+      height: 44px; padding: 0 12px; border-radius: var(--r-sm);
+      border: 1px solid var(--border); background-color: var(--bg); color: var(--text); font-family: inherit; font-size: 14px;
+    }
+
+    /* Summary sticky */
+    .summary-box { position: sticky; top: 84px; }
+    .summary-line {
+      display: flex; justify-content: space-between; gap: 12px; padding-block: 10px;
+      border-top: 1px solid var(--border); font-size: 14px;
+    }
+    .summary-line:first-of-type { border-top: none; padding-top: 0; }
+    .summary-key { color: var(--muted); }
+    .confirm-msg {
+      margin-top: 14px; padding: 12px; border-radius: var(--r-sm);
+      background-color: rgba(200, 157, 102, 0.12); border: 1px solid var(--accent);
+      font-size: 13px; color: var(--text); display: none;
+    }
+
+    /* Care guide */
+    .guide-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .guide-tab {
+      min-height: 36px; padding: 6px 14px; border-radius: var(--r-sm);
+      background-color: var(--surface); border: 1px solid var(--border); font-size: 13px; color: var(--text-sec);
+    }
+    .guide-tab[aria-selected="true"] {
+      border-color: var(--accent); color: var(--accent); font-weight: 500;
+    }
+    .guide-panel { font-size: 14px; color: var(--text-sec); }
+    .guide-panel[hidden] { display: none; }
+
+    /* Footer */
+    .site-footer { border-top: 1px solid var(--border); padding-block: 24px; font-size: 13px; color: var(--muted); }
+    .footer-inner { display: flex; flex-direction: column; gap: 8px; }
+    @media (min-width: 640px) { .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; } }
+
+    .mobile-dock {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+      background-color: rgba(20, 22, 25, 0.96); backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border); padding: 10px 16px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    @media (min-width: 768px) { .mobile-dock { display: none; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/></svg>
+        </span>
+        <span>Фрейя</span>
+      </a>
+      <nav class="header-nav" aria-label="Навигация">
+        <a href="#booking">Онлайн-запись</a>
+        <a href="#care">Памятка по уходу</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a href="tel:+79041959919" class="header-phone">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+7 904 195-99-19</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="place-pill">Ульяновск, Ленинский район</span>
+          <h1 class="hero-title">Барбершоп «Фрейя» с быстрой онлайн-записью</h1>
+          <p class="hero-desc">
+            Мужские стрижки, оформление бороды и аккуратные укладки на улице Радищева, 156. Выберите услугу и удобное время ниже, чтобы сразу забронировать визит.
+          </p>
+          <div class="btn-row">
+            <a href="#booking" class="btn-primary">Записаться онлайн</a>
+            <a href="https://2gis.ru/ulyanovsk/firm/70000001109889360" target="_blank" rel="noopener" class="btn-secondary">Маршрут в 2ГИС</a>
+          </div>
+        </div>
+
+        <aside class="info-card">
+          <div class="info-head">
+            <span class="info-title">График и ориентиры</span>
+            <span class="status-badge">5.0 на 2ГИС</span>
+          </div>
+          <div class="info-rows">
+            <div class="info-row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div>
+                <span class="info-label">Часы работы</span>
+                <span class="mono">Пн - Вс: 10:00 - 20:00</span>
+              </div>
+            </div>
+            <div class="info-row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <span class="info-label">Вход</span>
+                <span>Улица Радищева, 156, цокольный этаж, вход с торца, по коридору до конца</span>
+              </div>
+            </div>
+            <div class="info-row">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <span class="info-label">Дополнительный номер</span>
+                <a href="tel:+79603705959" class="mono">+7 960 370-59-59</a>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="booking">
+      <div class="section-head">
+        <h2 class="section-title">Онлайн-запись в барбершоп</h2>
+        <p class="section-sub">Выберите услугу, дату и свободное время, затем подтвердите заявку</p>
+      </div>
+
+      <div class="booking-grid">
+        <div class="panel">
+          <span class="step-label">Шаг 1. Услуга</span>
+          <div class="service-grid" id="srv-grid">
+            <button type="button" class="srv-btn" data-name="Мужская стрижка" data-dur="45 мин" aria-pressed="true">
+              <span class="srv-name">Мужская стрижка</span>
+              <span class="srv-meta">45 мин, мытьё и укладка</span>
+            </button>
+            <button type="button" class="srv-btn" data-name="Стрижка и оформление бороды" data-dur="75 мин" aria-pressed="false">
+              <span class="srv-name">Стрижка и борода</span>
+              <span class="srv-meta">75 мин, комплексный уход</span>
+            </button>
+            <button type="button" class="srv-btn" data-name="Оформление бороды" data-dur="30 мин" aria-pressed="false">
+              <span class="srv-name">Оформление бороды</span>
+              <span class="srv-meta">30 мин, чёткий контур</span>
+            </button>
+            <button type="button" class="srv-btn" data-name="Детская стрижка" data-dur="35 мин" aria-pressed="false">
+              <span class="srv-name">Детская стрижка</span>
+              <span class="srv-meta">35 мин, спокойный формат</span>
+            </button>
+          </div>
+
+          <span class="step-label">Шаг 2. Дата и время</span>
+          <div class="date-row" id="date-row"></div>
+          <div class="slots-grid" id="slots-grid"></div>
+
+          <span class="step-label">Шаг 3. Ваши контакты</span>
+          <div class="form-row">
+            <div class="field">
+              <label for="client-name">Ваше имя</label>
+              <input type="text" id="client-name" placeholder="Например: Алексей">
+            </div>
+            <div class="field">
+              <label for="client-phone">Телефон для связи</label>
+              <input type="tel" id="client-phone" placeholder="+7 900 000-00-00">
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel summary-box">
+          <h3 class="info-title" style="margin-bottom:14px">Детали записи</h3>
+          <div class="summary-line"><span class="summary-key">Услуга</span><span id="sum-srv">Мужская стрижка</span></div>
+          <div class="summary-line"><span class="summary-key">Длительность</span><span class="mono" id="sum-dur">45 мин</span></div>
+          <div class="summary-line"><span class="summary-key">Дата</span><span class="mono" id="sum-date"></span></div>
+          <div class="summary-line"><span class="summary-key">Время</span><span class="mono" id="sum-time">11:00</span></div>
+          <div class="summary-line"><span class="summary-key">Адрес</span><span>Радищева, 156</span></div>
+
+          <div class="btn-row" style="margin-top:18px;flex-direction:column">
+            <button type="button" class="btn-primary" id="confirm-btn">Подтвердить запись</button>
+            <a href="tel:+79041959919" class="btn-secondary">Позвонить напрямую</a>
+          </div>
+          <div class="confirm-msg" id="confirm-msg"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="care">
+      <div class="section-head">
+        <h2 class="section-title">Памятка по укладке между визитами</h2>
+        <p class="section-sub">Короткие рекомендации барбера, чтобы форма держалась дольше</p>
+      </div>
+      <div class="panel">
+        <div class="guide-tabs" role="tablist">
+          <button type="button" class="guide-tab" role="tab" aria-selected="true" data-tab="t1">Короткая стрижка</button>
+          <button type="button" class="guide-tab" role="tab" aria-selected="false" data-tab="t2">Средняя длина</button>
+          <button type="button" class="guide-tab" role="tab" aria-selected="false" data-tab="t3">Уход за бородой</button>
+        </div>
+        <div class="guide-panel" id="t1" role="tabpanel">
+          Достаточно сушить волосы феном по направлению роста и использовать небольшое количество матовой пасты на сухие волосы, чтобы сохранить текстуру без блеска.
+        </div>
+        <div class="guide-panel" id="t2" role="tabpanel" hidden>
+          Наносите солевой спрей на влажные волосы перед сушкой феном, затем фиксируйте форму лёгким кремом или глиной. Обновлять окантовку лучше раз в 3 недели.
+        </div>
+        <div class="guide-panel" id="t3" role="tabpanel" hidden>
+          Промывайте бороду мягким шампунем 2 раза в неделю и наносите пару капель масла на кожу после душа, чтобы щетина оставалась мягкой и не пушилась.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div class="container footer-inner">
+      <div>Фрейя, Ульяновск, ул. Радищева, 156, цокольный этаж</div>
+      <div><a href="https://2gis.ru/ulyanovsk/firm/70000001109889360" target="_blank" rel="noopener">Карточка в 2ГИС</a></div>
+    </div>
+  </footer>
+
+  <div class="mobile-dock">
+    <a href="#booking" class="btn-primary">Записаться</a>
+    <a href="tel:+79041959919" class="btn-secondary">Позвонить</a>
+  </div>
+
+  <script>
+    (function () {
+      const srvBtns = document.querySelectorAll('.srv-btn');
+      const dateRow = document.getElementById('date-row');
+      const slotsGrid = document.getElementById('slots-grid');
+      const sumSrv = document.getElementById('sum-srv');
+      const sumDur = document.getElementById('sum-dur');
+      const sumDate = document.getElementById('sum-date');
+      const sumTime = document.getElementById('sum-time');
+      const confirmBtn = document.getElementById('confirm-btn');
+      const confirmMsg = document.getElementById('confirm-msg');
+      const nameInput = document.getElementById('client-name');
+      const phoneInput = document.getElementById('client-phone');
+
+      const days = ['Сегодня', 'Завтра', 'Через 2 дня', 'Через 3 дня'];
+      const times = ['10:00', '11:00', '12:30', '14:00', '15:30', '17:00', '18:30', '19:15'];
+
+      let selectedDate = days[0];
+      let selectedTime = '11:00';
+
+      days.forEach(function (d, idx) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'date-btn';
+        b.textContent = d;
+        b.setAttribute('aria-pressed', idx === 0 ? 'true' : 'false');
+        b.addEventListener('click', function () {
+          dateRow.querySelectorAll('.date-btn').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+          selectedDate = d;
+          sumDate.textContent = d;
+        });
+        dateRow.appendChild(b);
+      });
+      sumDate.textContent = selectedDate;
+
+      times.forEach(function (t) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'slot-btn';
+        b.textContent = t;
+        b.setAttribute('aria-pressed', t === selectedTime ? 'true' : 'false');
+        b.addEventListener('click', function () {
+          slotsGrid.querySelectorAll('.slot-btn').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+          selectedTime = t;
+          sumTime.textContent = t;
+        });
+        slotsGrid.appendChild(b);
+      });
+
+      srvBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          srvBtns.forEach(function (o) { o.setAttribute('aria-pressed', o === btn ? 'true' : 'false'); });
+          sumSrv.textContent = btn.getAttribute('data-name');
+          sumDur.textContent = btn.getAttribute('data-dur');
+        });
+      });
+
+      confirmBtn.addEventListener('click', function () {
+        const name = nameInput.value.trim() || 'Гость';
+        const phone = phoneInput.value.trim();
+        confirmMsg.style.display = 'block';
+        confirmMsg.textContent = name + ', заявка сформирована: ' + sumSrv.textContent + ', ' + selectedDate + ' в ' + selectedTime + (phone ? ' (тел. ' + phone + ')' : '') + '. Для мгновенного подтверждения можно позвонить +7 904 195-99-19.';
+      });
+
+      const guideTabs = document.querySelectorAll('.guide-tab');
+      const guidePanels = document.querySelectorAll('.guide-panel');
+      guideTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          const target = tab.getAttribute('data-tab');
+          guideTabs.forEach(function (o) { o.setAttribute('aria-selected', o === tab ? 'true' : 'false'); });
+          guidePanels.forEach(function (p) { p.hidden = p.id !== target; });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

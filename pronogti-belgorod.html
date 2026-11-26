@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ПроНогти, студия маникюра и бровей в Белгороде</title>
+  <meta name="description" content="Студия «ПроНогти» в Белгороде: Гостёнская ул., 16, 1 этаж. Маникюр, педикюр, брови и ресницы. Ежедневно 10:00 - 22:00 по записи.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #F6F5F3; --surface: #FFFFFF; --border: rgba(34,28,30,0.09); --text: #221C1E; --muted: #60585A; --accent: #684252; --accent-ink: #FFFFFF; --r: 14px; --rc: 8px; --sans: 'Plus Jakarta Sans', sans-serif; --mono: 'IBM Plex Mono', monospace; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+    .container { width: 100%; max-width: 820px; margin-inline: auto; padding-inline: 16px; }
+    .header { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .header-in { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+    .brand { font-weight: 500; font-size: 16px; }
+    .city { font-size: 13px; color: var(--muted); margin-left: 8px; font-weight: 400; }
+    .phone { padding: 6px 12px; border-radius: var(--rc); border: 1px solid var(--border); background: var(--bg); font-family: var(--mono); font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .stack { padding-block: 28px 48px; display: flex; flex-direction: column; gap: 20px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; }
+    .loc { font-size: 13px; color: var(--accent); margin-bottom: 8px; }
+    h1 { font-size: 28px; font-weight: 500; line-height: 1.2; margin-bottom: 10px; }
+    .desc { color: var(--muted); margin-bottom: 18px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 18px; border-radius: var(--rc); background: var(--accent); color: var(--accent-ink); font-weight: 500; font-size: 14px; }
+    .btn-b { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: var(--rc); background: var(--bg); border: 1px solid var(--border); font-size: 14px; }
+    h2 { font-size: 17px; font-weight: 500; margin-bottom: 12px; }
+    .row { display: flex; justify-content: space-between; gap: 12px; padding-block: 10px; border-top: 1px solid var(--border); font-size: 14px; }
+    .row:first-of-type { border-top: none; padding-top: 0; }
+    .footer { border-top: 1px solid var(--border); padding-block: 20px; font-size: 13px; color: var(--muted); }
+    .footer-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+  </style>
+</head>
+<body>
+  <header class="header"><div class="container header-in"><a href="#" class="brand">ПроНогти<span class="city">Белгород</span></a><a href="tel:+79102297038" class="phone">+7 910 229-70-38</a></div></header>
+  <main class="container stack">
+    <section class="card">
+      <div class="loc">Гостёнская ул., 16, 1 этаж</div>
+      <h1>Студия маникюра и бровей «ПроНогти»</h1>
+      <p class="desc">Аппаратный, мужской и детский маникюр, гель-лак, наращивание, педикюр, ламинирование и окрашивание ресниц и бровей. Ежедневно 10:00 - 22:00 по записи.</p>
+      <div class="btns"><a href="tel:+79102297038" class="btn-a">Позвонить</a><a href="https://wa.me/79102297038" target="_blank" rel="noopener" class="btn-b">WhatsApp</a><a href="https://2gis.ru/belgorod/firm/70000001058693015" target="_blank" rel="noopener" class="btn-b">2ГИС</a></div>
+    </section>
+    <section class="card">
+      <h2>Мастера и контакты</h2>
+      <div class="row"><span>Мастера</span><span>Алина Середа, Александра, Виктория, Мила, Анастасия, Диана</span></div>
+      <div class="row"><span>Доп. телефон</span><a href="tel:+79183458879" class="mono">+7 918 345-88-79</a></div>
+      <div class="row"><span>Рейтинг на 2ГИС</span><span class="mono">4.9 (22 отзыва)</span></div>
+      <div class="row"><span>Оплата</span><span>Карта, наличные, перевод с карты</span></div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-in"><span>ПроНогти, Белгород, Гостёнская ул., 16</span><a href="https://2gis.ru/belgorod/firm/70000001058693015" target="_blank" rel="noopener">2ГИС</a></div></footer>
+</body>
+</html>

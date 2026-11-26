@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunrise, салон красоты и онлайн-запись в Смоленске</title>
+  <meta name="description" content="Салон красоты Sunrise в Смоленске: ул. Рыленкова, 9а к2. Стрижки от 260 ₽, косметология, ногтевой сервис и солярий. Онлайн-запись ежедневно 10:00 - 20:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #F7F5F0; --surface: #FFFFFF; --border: rgba(30,34,30,0.09); --text: #1E221E; --muted: #5C665E; --accent: #3F6A58; --accent-ink: #FFFFFF; --tint: #EDF3F0; --r: 14px; --rc: 8px; --sans: 'Plus Jakarta Sans', sans-serif; --mono: 'IBM Plex Mono', monospace; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+    .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+    .container { width: 100%; max-width: 960px; margin-inline: auto; padding-inline: 16px; }
+    .header { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .header-in { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+    .brand { font-weight: 500; font-size: 16px; }
+    .city { font-size: 13px; color: var(--muted); margin-left: 8px; font-weight: 400; }
+    .phone { padding: 6px 12px; border-radius: var(--rc); border: 1px solid var(--border); background: var(--bg); font-family: var(--mono); font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .stack { padding-block: 28px 48px; display: flex; flex-direction: column; gap: 22px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; }
+    .loc { font-size: 13px; color: var(--accent); margin-bottom: 8px; }
+    h1 { font-size: 28px; font-weight: 500; line-height: 1.2; margin-bottom: 10px; }
+    .desc { color: var(--muted); margin-bottom: 18px; max-width: 56ch; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 18px; border-radius: var(--rc); background: var(--accent); color: var(--accent-ink); font-weight: 500; font-size: 14px; }
+    .btn-b { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: var(--rc); background: var(--bg); border: 1px solid var(--border); font-size: 14px; }
+    h2 { font-size: 18px; font-weight: 500; margin-bottom: 14px; }
+    .srv-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 18px; }
+    @media (min-width: 600px) { .srv-grid { grid-template-columns: 1fr 1fr; } }
+    .srv-btn { text-align: left; padding: 14px 16px; border-radius: 10px; background: var(--bg); border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .srv-btn[aria-pressed="true"] { border-color: var(--accent); background: var(--tint); }
+    .slots { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .slot { min-height: 38px; padding: 6px 12px; border-radius: var(--rc); background: var(--bg); border: 1px solid var(--border); font-family: var(--mono); font-size: 13px; }
+    .slot[aria-pressed="true"] { background: var(--accent); color: #FFF; border-color: var(--accent); }
+    .field-row { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 16px; }
+    @media (min-width: 560px) { .field-row { grid-template-columns: 1fr 1fr; } }
+    .field input { width: 100%; height: 44px; padding: 0 12px; border-radius: var(--rc); border: 1px solid var(--border); background: var(--bg); font-family: inherit; font-size: 14px; }
+    .confirm { margin-top: 12px; padding: 12px; border-radius: var(--rc); background: var(--tint); border: 1px solid var(--accent); font-size: 13px; display: none; }
+    .footer { border-top: 1px solid var(--border); padding-block: 20px; font-size: 13px; color: var(--muted); }
+    .footer-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+  </style>
+</head>
+<body>
+  <header class="header"><div class="container header-in"><a href="#" class="brand">Sunrise<span class="city">Смоленск</span></a><a href="tel:+79107850719" class="phone">+7 910 785-07-19</a></div></header>
+  <main class="container stack">
+    <section class="card">
+      <div class="loc">Промышленный район, ул. Рыленкова, 9а к2</div>
+      <h1>Салон красоты Sunrise</h1>
+      <p class="desc">Парикмахерские услуги, косметолог, ногтевой сервис и студия загара. Работаем ежедневно с 10:00 до 20:00. Оценка 5.0 на 2ГИС.</p>
+      <div class="btns"><a href="#book" class="btn-a">Онлайн-запись</a><a href="tel:+74812525944" class="btn-b mono">Гор.: +7 (4812) 52-59-44</a><a href="https://2gis.ru/smolensk/firm/8866990047363734" target="_blank" rel="noopener" class="btn-b">2ГИС</a></div>
+    </section>
+
+    <section class="card" id="book">
+      <h2>Конструктор визита</h2>
+      <div class="srv-grid">
+        <button type="button" class="srv-btn" data-n="Женская стрижка" aria-pressed="true"><span>Женская стрижка</span><span class="mono">от 310 ₽</span></button>
+        <button type="button" class="srv-btn" data-n="Мужская стрижка" aria-pressed="false"><span>Мужская стрижка</span><span class="mono">от 260 ₽</span></button>
+        <button type="button" class="srv-btn" data-n="Ногтевой сервис" aria-pressed="false"><span>Ногтевой сервис</span><span class="mono">По записи</span></button>
+        <button type="button" class="srv-btn" data-n="Косметолог или загар" aria-pressed="false"><span>Косметолог / солярий</span><span class="mono">По записи</span></button>
+      </div>
+      <div class="slots" id="slots">
+        <button type="button" class="slot" aria-pressed="true">10:30</button>
+        <button type="button" class="slot" aria-pressed="false">12:00</button>
+        <button type="button" class="slot" aria-pressed="false">14:30</button>
+        <button type="button" class="slot" aria-pressed="false">16:00</button>
+        <button type="button" class="slot" aria-pressed="false">18:00</button>
+      </div>
+      <div class="field-row">
+        <div class="field"><input type="text" id="cname" placeholder="Ваше имя"></div>
+        <div class="field"><input type="tel" id="cphone" placeholder="Ваш телефон"></div>
+      </div>
+      <button type="button" class="btn-a" id="cbtn">Забронировать время</button>
+      <div class="confirm" id="cmsg"></div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-in"><span>Sunrise, Смоленск, ул. Рыленкова, 9а к2</span><a href="https://2gis.ru/smolensk/firm/8866990047363734" target="_blank" rel="noopener">2ГИС</a></div></footer>
+  <script>
+    (function () {
+      const srvs = document.querySelectorAll('.srv-btn'), slots = document.querySelectorAll('.slot'), btn = document.getElementById('cbtn'), msg = document.getElementById('cmsg');
+      let selSrv = 'Женская стрижка', selTime = '10:30';
+      srvs.forEach(function (s) { s.addEventListener('click', function () { srvs.forEach(function (o) { o.setAttribute('aria-pressed', o === s ? 'true' : 'false'); }); selSrv = s.getAttribute('data-n'); }); });
+      slots.forEach(function (t) { t.addEventListener('click', function () { slots.forEach(function (o) { o.setAttribute('aria-pressed', o === t ? 'true' : 'false'); }); selTime = t.textContent; }); });
+      btn.addEventListener('click', function () {
+        const n = document.getElementById('cname').value.trim() || 'Гость';
+        msg.style.display = 'block';
+        msg.textContent = n + ', заявка принята: ' + selSrv + ' на ' + selTime + '. Для подтверждения можно позвонить +7 910 785-07-19.';
+      });
+    })();
+  </script>
+</body>
+</html>
