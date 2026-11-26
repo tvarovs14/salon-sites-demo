@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Важный Гусь, барбершоп в Твери</title>
+  <meta name="description" content="Барбершоп «Важный Гусь» в Твери: ул. Горького, 102/8, 1 этаж. Мужские стрижки от 500 ₽ и детские стрижки. Открыто с 09:30.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #F6F5F2; --surface: #FFFFFF; --border: rgba(30,28,25,0.09); --text: #1E1C19; --muted: #66615A; --accent: #4E5B4C; --accent-ink: #FFFFFF; --r: 14px; --rc: 8px; --sans: 'Inter', sans-serif; --mono: 'IBM Plex Mono', monospace; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+    .container { width: 100%; max-width: 720px; margin-inline: auto; padding-inline: 16px; }
+    .header { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .header-in { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+    .brand { font-weight: 500; font-size: 16px; }
+    .city { font-size: 13px; color: var(--muted); margin-left: 8px; font-weight: 400; }
+    .phone { padding: 6px 12px; border-radius: var(--rc); border: 1px solid var(--border); background: var(--bg); font-family: var(--mono); font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .stack { padding-block: 28px 48px; display: flex; flex-direction: column; gap: 20px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; }
+    .loc { font-size: 13px; color: var(--accent); margin-bottom: 8px; }
+    h1 { font-size: 28px; font-weight: 500; line-height: 1.2; margin-bottom: 10px; }
+    .desc { color: var(--muted); margin-bottom: 18px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 18px; border-radius: var(--rc); background: var(--accent); color: var(--accent-ink); font-weight: 500; font-size: 14px; }
+    .btn-b { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: var(--rc); background: var(--bg); border: 1px solid var(--border); font-size: 14px; }
+    h2 { font-size: 17px; font-weight: 500; margin-bottom: 12px; }
+    .row { display: flex; justify-content: space-between; gap: 12px; padding-block: 10px; border-top: 1px solid var(--border); font-size: 14px; }
+    .row:first-of-type { border-top: none; padding-top: 0; }
+    .row:last-of-type { padding-bottom: 0; }
+    .footer { border-top: 1px solid var(--border); padding-block: 20px; font-size: 13px; color: var(--muted); }
+    .footer-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+  </style>
+</head>
+<body>
+  <header class="header"><div class="container header-in"><a href="#" class="brand">Важный Гусь<span class="city">Тверь</span></a><a href="tel:+79167487199" class="phone">+7 916 748-71-99</a></div></header>
+  <main class="container stack">
+    <section class="card">
+      <div class="loc">Заволжский район, ул. Горького, 102/8, 1 этаж</div>
+      <h1>Барбершоп «Важный Гусь»</h1>
+      <p class="desc">Мужские стрижки от 500 ₽ и детские стрижки в Ближнем Заволжье. Работаем с 09:30.</p>
+      <div class="btns"><a href="tel:+79167487199" class="btn-a">Позвонить</a><a href="https://2gis.ru/tver/firm/70000001118702268" target="_blank" rel="noopener" class="btn-b">Открыть в 2ГИС</a></div>
+    </section>
+    <section class="card">
+      <h2>Услуги и детали</h2>
+      <div class="row"><span>Мужская стрижка</span><span class="mono">от 500 ₽</span></div>
+      <div class="row"><span>Детская стрижка</span><span>По записи</span></div>
+      <div class="row"><span>Рейтинг на 2ГИС</span><span class="mono">5.0 (2 отзыва)</span></div>
+      <div class="row"><span>Адрес</span><span>Ул. Горького, 102/8, 170026</span></div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-in"><span>Важный Гусь, Тверь, ул. Горького, 102/8</span><a href="https://2gis.ru/tver/firm/70000001118702268" target="_blank" rel="noopener">2ГИС</a></div></footer>
+</body>
+</html>

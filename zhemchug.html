@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Жемчуг, студия красоты в Челябинске</title>
+  <meta name="description" content="Студия красоты «Жемчуг» в Челябинске: проспект Победы, 159а, 1 этаж. Маникюр, педикюр, стрижки от 500 ₽, окрашивание, брови и ресницы. Ежедневно 09:00 - 20:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F4F6F7; --surface: #FFFFFF; --border: rgba(24, 32, 38, 0.09);
+      --text: #182026; --muted: #5A6670; --accent: #3F6373; --accent-ink: #FFFFFF;
+      --r: 14px; --rc: 8px;
+      --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+    .container { width: 100%; max-width: 820px; margin-inline: auto; padding-inline: 16px; }
+    .header { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .header-in { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+    .brand { font-weight: 500; font-size: 16px; }
+    .city { font-size: 13px; color: var(--muted); margin-left: 8px; font-weight: 400; }
+    .phone { padding: 6px 12px; border-radius: var(--rc); border: 1px solid var(--border); background: var(--bg); font-family: var(--mono); font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .stack { padding-block: 28px 48px; display: flex; flex-direction: column; gap: 20px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; }
+    .loc { font-size: 13px; color: var(--accent); margin-bottom: 8px; }
+    h1 { font-size: 28px; font-weight: 500; line-height: 1.2; margin-bottom: 10px; }
+    .desc { color: var(--muted); margin-bottom: 18px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 18px; border-radius: var(--rc); background: var(--accent); color: var(--accent-ink); font-weight: 500; font-size: 14px; }
+    .btn-b { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: var(--rc); background: var(--bg); border: 1px solid var(--border); font-size: 14px; }
+    h2 { font-size: 17px; font-weight: 500; margin-bottom: 12px; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    @media (min-width: 600px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .box { padding: 14px 16px; border-radius: 10px; background: var(--bg); border: 1px solid var(--border); }
+    .box-t { font-weight: 500; margin-bottom: 4px; }
+    .box-d { font-size: 13px; color: var(--muted); }
+    .row { display: flex; justify-content: space-between; gap: 12px; padding-block: 10px; border-top: 1px solid var(--border); font-size: 14px; }
+    .row:first-of-type { border-top: none; padding-top: 0; }
+    .row:last-of-type { padding-bottom: 0; }
+    .footer { border-top: 1px solid var(--border); padding-block: 20px; font-size: 13px; color: var(--muted); }
+    .footer-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-in">
+      <a href="#" class="brand">Жемчуг<span class="city">Челябинск</span></a>
+      <a href="tel:+79925033361" class="phone">+7 992 503-33-61</a>
+    </div>
+  </header>
+  <main class="container stack">
+    <section class="card">
+      <div class="loc">Калининский район, проспект Победы, 159а, 1 этаж (вход с ул. Кирова)</div>
+      <h1>Студия красоты «Жемчуг»</h1>
+      <p class="desc">Ногтевой сервис, парикмахерские услуги, брови и ресницы. Ежедневно с 09:00 до 20:00 по предварительной записи. Внимательный подход мастера Гули.</p>
+      <div class="btns">
+        <a href="tel:+79925033361" class="btn-a">Позвонить</a>
+        <a href="https://wa.me/79925033361" target="_blank" rel="noopener" class="btn-b">WhatsApp</a>
+        <a href="https://2gis.ru/chelyabinsk/firm/70000001105684115" target="_blank" rel="noopener" class="btn-b">2ГИС</a>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Направления и цены</h2>
+      <div class="grid">
+        <div class="box"><div class="box-t">Ногтевой сервис</div><div class="box-d">Аппаратный маникюр, гель-лак, мужской и детский маникюр, женский и мужской педикюр</div></div>
+        <div class="box"><div class="box-t">Стрижки и окрашивание</div><div class="box-d">Женская стрижка от 600 ₽, мужская от 500 ₽, окрашивание волос</div></div>
+        <div class="box"><div class="box-t">Брови и ресницы</div><div class="box-d">Оформление и ламинирование бровей и ресниц</div></div>
+        <div class="box"><div class="box-t">Рейтинг на 2ГИС</div><div class="box-d">Оценка 5.0 по 39 оценкам и 27 отзывам</div></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-in">
+      <span>Жемчуг, Челябинск, пр. Победы, 159а</span>
+      <a href="https://2gis.ru/chelyabinsk/firm/70000001105684115" target="_blank" rel="noopener">2ГИС</a>
+    </div>
+  </footer>
+</body>
+</html>
