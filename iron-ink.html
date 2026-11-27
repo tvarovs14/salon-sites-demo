@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iron Ink — тату-студия и онлайн-запись в Сыктывкаре</title>
+  <meta name="description" content="Тату-студия Iron Ink в Сыктывкаре: ул. Морозова, 51/1. Художественная татуировка, перекрытие и консультации. Онлайн-запись с 09:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #131416;
+      --surface: #1B1D20;
+      --elevated: #23262B;
+      --border: rgba(238, 240, 244, 0.09);
+      --border-strong: rgba(238, 240, 244, 0.18);
+      --text: #EEF0F4;
+      --text-sec: #A1A6B0;
+      --muted: #6F7580;
+      --accent: #B88A56;
+      --accent-hover: #C89964;
+      --accent-ink: #131416;
+      --r-lg: 16px;
+      --r-md: 12px;
+      --r-sm: 8px;
+      --sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, monospace;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 100px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+    a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Parallax Needle & Geometry SVG */
+    .studio-bg-svg {
+      position: fixed;
+      top: 10vh;
+      right: -60px;
+      width: 240px;
+      height: 360px;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.14;
+      will-change: transform;
+    }
+
+    @media (min-width: 768px) {
+      .studio-bg-svg {
+        right: 6vw;
+        width: 300px;
+        height: 440px;
+        opacity: 0.18;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .header-meta {
+      font-size: 13px;
+      color: var(--text-sec);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero {
+      padding: 40px 0 36px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-tag {
+      font-size: 13px;
+      color: var(--accent);
+      font-family: var(--mono);
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: 36px;
+      line-height: 1.08;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    @media (min-width: 640px) {
+      .hero-title {
+        font-size: 48px;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-sec);
+      max-width: 48ch;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    @media (min-width: 540px) {
+      .hero-actions {
+        flex-direction: row;
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background-color: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--elevated);
+      border-color: var(--border-strong);
+    }
+
+    .hero-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (min-width: 540px) {
+      .hero-info {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-sec);
+    }
+
+    .info-item .icon {
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .info-item strong {
+      display: block;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .section {
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    /* Interactive Session Planner */
+    .planner-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 20px;
+    }
+
+    .label-sm {
+      display: block;
+      font-size: 13px;
+      color: var(--text-sec);
+      margin-bottom: 8px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .pill-btn {
+      min-height: 36px;
+      padding: 6px 14px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      color: var(--text-sec);
+      font-size: 13px;
+    }
+
+    .pill-btn.active {
+      background-color: var(--accent);
+      color: var(--accent-ink);
+      border-color: var(--accent);
+      font-weight: 500;
+    }
+
+    .range-wrap {
+      margin-bottom: 18px;
+    }
+
+    .range-wrap input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+      margin-top: 8px;
+    }
+
+    .est-panel {
+      padding: 14px 16px;
+      border-radius: var(--r-md);
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .est-val {
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .slots-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .slot-btn {
+      min-height: 38px;
+      padding: 6px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      font-family: var(--mono);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .slot-btn.active {
+      background-color: var(--accent);
+      color: var(--accent-ink);
+      border-color: var(--accent);
+      font-weight: 500;
+    }
+
+    .text-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 12px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .preview-msg {
+      padding: 12px 14px;
+      border-radius: var(--r-sm);
+      background-color: var(--elevated);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-sec);
+      margin-bottom: 16px;
+    }
+
+    /* Care Steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 540px) {
+      .steps-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .step-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 18px;
+    }
+
+    .step-num {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .step-text {
+      font-size: 13px;
+      color: var(--text-sec);
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .faq-a {
+      padding: 0 18px 16px;
+      font-size: 13px;
+      color: var(--text-sec);
+      display: none;
+    }
+
+    .faq-item.open .faq-a {
+      display: block;
+    }
+
+    .footer {
+      padding: 32px 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media (min-width: 540px) {
+      .footer-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-link {
+      padding: 8px 14px;
+      border-radius: 8px;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .footer-bottom {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Floating Bar */
+    .float-bar {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 680px;
+      background-color: var(--elevated);
+      border: 1px solid var(--border-strong);
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      z-index: 40;
+    }
+
+    @media (min-width: 768px) {
+      .float-bar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="studio-bg-svg" id="parallaxBg" aria-hidden="true">
+    <svg viewBox="0 0 240 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="120" cy="140" r="88" stroke="#B88A56" stroke-width="1.6" stroke-dasharray="4 4"/>
+      <polygon points="120,34 204,188 36,188" stroke="#B88A56" stroke-width="1.8"/>
+      <line x1="120" y1="20" x2="120" y2="330" stroke="#B88A56" stroke-width="2"/>
+      <circle cx="120" cy="140" r="24" stroke="#B88A56" stroke-width="1.6"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <header class="header">
+      <a href="#" class="logo">Iron Ink</a>
+      <div class="header-meta">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+        <span>С 09:00 ежедневно</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-tag">Сыктывкар, ул. Морозова, 51/1</div>
+      <h1 class="hero-title">Тату-студия Iron Ink</h1>
+      <p class="hero-subtitle">
+        Индивидуальные эскизы, художественная татуировка и консультации по перекрытию. Рассчитайте примерное время сеанса и отправьте заявку в пару кликов.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#planner" class="btn btn-primary">Рассчитать сеанс и записаться</a>
+        <a href="tel:+79009811213" class="btn btn-secondary mono">+7 900 981-12-13</a>
+      </div>
+
+      <div class="hero-info">
+        <div class="info-item">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <strong>Адрес студии</strong>
+            Улица Морозова, 51/1, Сыктывкар, 167016
+          </div>
+        </div>
+        <div class="info-item">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <div>
+            <strong>Рейтинг на 2ГИС</strong>
+            5.0 по 4 оценкам и 4 отзывам
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="planner">
+      <h2 class="section-title">Онлайн-запись и расчёт сеанса</h2>
+      <div class="planner-card">
+        <span class="label-sm">Направление работы</span>
+        <div class="pill-row" id="typeRow">
+          <button type="button" class="pill-btn active" data-val="Новая татуировка">Новая татуировка</button>
+          <button type="button" class="pill-btn" data-val="Перекрытие старой">Перекрытие</button>
+          <button type="button" class="pill-btn" data-val="Консультация по эскизу">Консультация</button>
+        </div>
+
+        <span class="label-sm">Зона на теле</span>
+        <div class="pill-row" id="zoneRow">
+          <button type="button" class="pill-btn active" data-val="Предплечье">Предплечье</button>
+          <button type="button" class="pill-btn" data-val="Плечо">Плечо</button>
+          <button type="button" class="pill-btn" data-val="Голень">Голень</button>
+          <button type="button" class="pill-btn" data-val="Спина или грудь">Спина / грудь</button>
+        </div>
+
+        <div class="range-wrap">
+          <label class="label-sm" for="sizeSlider">Примерный размер: <span class="mono" id="sizeLabel">14 см</span></label>
+          <input type="range" id="sizeSlider" min="4" max="35" value="14">
+        </div>
+
+        <div class="est-panel">
+          <span>Ориентировочная длительность</span>
+          <span class="est-val" id="estTime">2 - 3 часа</span>
+        </div>
+
+        <span class="label-sm">Удобное время начала</span>
+        <div class="slots-grid" id="slotsGrid">
+          <button type="button" class="slot-btn active" data-slot="10:00">10:00</button>
+          <button type="button" class="slot-btn" data-slot="12:30">12:30</button>
+          <button type="button" class="slot-btn" data-slot="15:00">15:00</button>
+          <button type="button" class="slot-btn" data-slot="17:30">17:30</button>
+        </div>
+
+        <label class="label-sm" for="ideaInput">Краткое описание идеи</label>
+        <input type="text" id="ideaInput" class="text-input" placeholder="Например: графика, ч/б эскиз">
+
+        <div class="preview-msg" id="previewMsg"></div>
+
+        <div class="hero-actions" style="margin-bottom:0">
+          <a href="https://wa.me/79009811213" target="_blank" rel="noopener" class="btn btn-primary" id="waBtn">Отправить заявку в WhatsApp</a>
+          <button type="button" class="btn btn-secondary" id="copyBtn">Скопировать текст</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Как подготовиться к сеансу</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-title">Перед визитом</div>
+          <p class="step-text">Хорошо выспитесь и плотно поешьте за 1-2 часа до прихода в студию, чтобы сеанс прошёл спокойно.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-title">Подбор эскиза</div>
+          <p class="step-text">Можно прийти со своим референсом или обсудить идею с мастером перед началом работы.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-title">Одежда</div>
+          <p class="step-text">Выбирайте свободную одежду, которая не будет натирать свежую татуировку по дороге домой.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <div class="step-title">Заживление</div>
+          <p class="step-text">После завершения сеанса вы получите подробную памятку по уходу на первые 14 дней.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Частые вопросы</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false"><span>Как рассчитывается стоимость работы</span><span>+</span></button>
+          <div class="faq-a">Цена зависит от размера, детализации эскиза и зоны нанесения. Точную сумму мастер назовёт после обсуждения идеи в WhatsApp.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false"><span>С какого времени открыта студия</span><span>+</span></button>
+          <div class="faq-a">Студия на улице Морозова, 51/1 работает с 09:00. Лучше предварительно согласовать время по телефону или в мессенджере.</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div>
+          <div class="logo" style="margin-bottom: 6px;">Iron Ink</div>
+          <p style="font-size: 13px; color: var(--text-sec);">Улица Морозова, 51/1, Сыктывкар, 167016</p>
+        </div>
+        <div class="footer-links">
+          <a href="tel:+79009811213" class="footer-link mono">+7 900 981-12-13</a>
+          <a href="https://wa.me/79009811213" target="_blank" rel="noopener" class="footer-link">WhatsApp</a>
+          <a href="https://2gis.ru/syktyvkar/firm/70000001094141490" target="_blank" rel="noopener" class="footer-link">2ГИС</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Тату-студия Iron Ink, Сыктывкар</span>
+        <span>Открытие с 09:00</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="float-bar">
+    <a href="#planner" class="btn btn-primary" style="flex:1">Записаться</a>
+    <a href="tel:+79009811213" class="btn btn-secondary" style="flex:1">Позвонить</a>
+  </div>
+
+  <script>
+    (function () {
+      const parallaxBg = document.getElementById('parallaxBg');
+      let ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            const y = window.scrollY;
+            parallaxBg.style.transform = 'translate3d(0, ' + (y * 0.1) + 'px, 0) rotate(' + (y * 0.02) + 'deg)';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      let workType = 'Новая татуировка';
+      let zone = 'Предплечье';
+      let slot = '10:00';
+
+      const sizeSlider = document.getElementById('sizeSlider');
+      const sizeLabel = document.getElementById('sizeLabel');
+      const estTime = document.getElementById('estTime');
+      const ideaInput = document.getElementById('ideaInput');
+      const previewMsg = document.getElementById('previewMsg');
+      const waBtn = document.getElementById('waBtn');
+      const copyBtn = document.getElementById('copyBtn');
+
+      function updateAll() {
+        const cm = Number(sizeSlider.value);
+        sizeLabel.textContent = cm + ' см';
+        let dur = '1 - 2 часа';
+        if (cm >= 10 && cm < 18) dur = '2 - 3 часа';
+        else if (cm >= 18 && cm < 26) dur = '4 - 5 часов';
+        else if (cm >= 26) dur = '1 - 2 сеанса';
+        estTime.textContent = dur;
+
+        const idea = ideaInput.value.trim();
+        let text = 'Здравствуйте. Хочу записаться в Iron Ink (' + workType + '). Зона: ' + zone + ', размер около ' + cm + ' см, удобное время: ' + slot + '.';
+        if (idea) text += ' Идея: ' + idea + '.';
+        previewMsg.textContent = text;
+        waBtn.href = 'https://wa.me/79009811213?text=' + encodeURIComponent(text);
+        return text;
+      }
+
+      document.querySelectorAll('#typeRow .pill-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('#typeRow .pill-btn').forEach(function (o) { o.classList.remove('active'); });
+          b.classList.add('active');
+          workType = b.getAttribute('data-val');
+          updateAll();
+        });
+      });
+
+      document.querySelectorAll('#zoneRow .pill-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('#zoneRow .pill-btn').forEach(function (o) { o.classList.remove('active'); });
+          b.classList.add('active');
+          zone = b.getAttribute('data-val');
+          updateAll();
+        });
+      });
+
+      document.querySelectorAll('#slotsGrid .slot-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('#slotsGrid .slot-btn').forEach(function (o) { o.classList.remove('active'); });
+          b.classList.add('active');
+          slot = b.getAttribute('data-slot');
+          updateAll();
+        });
+      });
+
+      sizeSlider.addEventListener('input', updateAll);
+      ideaInput.addEventListener('input', updateAll);
+
+      copyBtn.addEventListener('click', function () {
+        const txt = updateAll();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(txt).then(function () {
+            copyBtn.textContent = 'Скопировано';
+            setTimeout(function () { copyBtn.textContent = 'Скопировать текст'; }, 1800);
+          });
+        }
+      });
+
+      document.querySelectorAll('.faq-q').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const item = btn.parentElement;
+          const open = item.classList.toggle('open');
+          btn.setAttribute('aria-expanded', String(open));
+        });
+      });
+
+      updateAll();
+    })();
+  </script>
+</body>
+</html>

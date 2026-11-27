@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Территория стиля — моностудия маникюра и педикюра в Йошкар-Оле</title>
+  <meta name="description" content="Моностудия маникюра «Территория стиля» в Йошкар-Оле: ул. Конакова, 62, офис 1. Аппаратный, мужской маникюр, женский педикюр. Онлайн-запись с 10:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F4F6F5;
+      --surface: #FFFFFF;
+      --surface-soft: #E9EEEC;
+      --border: rgba(24, 34, 30, 0.09);
+      --border-strong: rgba(24, 34, 30, 0.20);
+      --text: #18221E;
+      --text-sec: #52615B;
+      --muted: #7F8E88;
+      --accent: #2D5E52;
+      --accent-hover: #224A40;
+      --accent-ink: #FFFFFF;
+      --tint: #EBF3F1;
+      --r-lg: 16px;
+      --r-md: 12px;
+      --r-sm: 8px;
+      --sans: 'Onest', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, monospace;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 104px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+    a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Parallax Minimal Nail Arch SVG */
+    .parallax-art {
+      position: fixed;
+      top: 12vh;
+      right: -64px;
+      width: 240px;
+      height: 360px;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.14;
+      will-change: transform;
+    }
+
+    @media (min-width: 768px) {
+      .parallax-art {
+        right: 6vw;
+        width: 300px;
+        height: 440px;
+        opacity: 0.18;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      font-weight: 500;
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--accent);
+    }
+
+    .header-phone {
+      padding: 7px 12px;
+      border-radius: var(--r-sm);
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .hero {
+      padding: 40px 0 36px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-tag {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: 34px;
+      line-height: 1.12;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    @media (min-width: 640px) {
+      .hero-title {
+        font-size: 46px;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-sec);
+      max-width: 50ch;
+      margin-bottom: 24px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background-color: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--surface-soft);
+      border-color: var(--border-strong);
+    }
+
+    .hero-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (min-width: 560px) {
+      .hero-info {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .info-box {
+      font-size: 13px;
+      color: var(--text-sec);
+    }
+
+    .info-box strong {
+      display: block;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .section {
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--text-sec);
+      margin-bottom: 20px;
+    }
+
+    /* Interactive Nail Shape Visualizer */
+    .shape-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 20px;
+    }
+
+    .shape-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .shape-btn {
+      min-height: 36px;
+      padding: 6px 14px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      font-size: 13px;
+      color: var(--text-sec);
+    }
+
+    .shape-btn.active {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #FFFFFF;
+      font-weight: 500;
+    }
+
+    .shape-preview {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 16px;
+      border-radius: var(--r-md);
+      background-color: var(--bg);
+    }
+
+    @media (min-width: 540px) {
+      .shape-preview {
+        grid-template-columns: 120px 1fr;
+      }
+    }
+
+    .shape-svg-wrap {
+      height: 92px;
+      border-radius: 10px;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    /* Service Selection */
+    .srv-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .srv-row {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .srv-name {
+      font-weight: 500;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .srv-desc {
+      font-size: 13px;
+      color: var(--text-sec);
+    }
+
+    .pick-btn {
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .pick-btn.selected {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #FFFFFF;
+    }
+
+    /* Phones & Standards */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 560px) {
+      .two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card-box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 18px;
+    }
+
+    .card-box h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .card-box p {
+      font-size: 13px;
+      color: var(--text-sec);
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .faq-a {
+      padding: 0 18px 16px;
+      font-size: 13px;
+      color: var(--text-sec);
+      display: none;
+    }
+
+    .faq-item.open .faq-a {
+      display: block;
+    }
+
+    .footer {
+      padding: 32px 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media (min-width: 560px) {
+      .footer-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-link {
+      padding: 8px 14px;
+      border-radius: 8px;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .footer-bottom {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Floating Bar & Modal */
+    .booking-bar {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translate(-50%, 140%);
+      width: calc(100% - 32px);
+      max-width: 720px;
+      background-color: var(--text);
+      color: #FFFFFF;
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 40;
+      cursor: pointer;
+      transition: transform 0.3s var(--ease);
+    }
+
+    .booking-bar.visible {
+      transform: translate(-50%, 0);
+    }
+
+    .bar-count {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      margin-right: 12px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(24, 34, 30, 0.45);
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+      .modal-backdrop {
+        align-items: center;
+        padding: 20px;
+      }
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-sheet {
+      width: 100%;
+      max-width: 520px;
+      background-color: var(--bg);
+      border-radius: 20px 20px 0 0;
+      border: 1px solid var(--border);
+      padding: 24px 20px 28px;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.3s var(--ease);
+    }
+
+    @media (min-width: 640px) {
+      .modal-sheet {
+        border-radius: 20px;
+        transform: translateY(16px);
+      }
+    }
+
+    .modal-backdrop.open .modal-sheet {
+      transform: translateY(0);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .close-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slot-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .choice-btn {
+      padding: 10px 6px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      font-family: var(--mono);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .choice-btn.active {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
+      font-weight: 500;
+    }
+
+    .modal-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      font-family: inherit;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .confirm-banner {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      background-color: var(--tint);
+      border: 1px solid var(--accent);
+      font-size: 13px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="parallax-art" id="parallaxArt" aria-hidden="true">
+    <svg viewBox="0 0 240 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="70" y="36" width="100" height="288" rx="50" stroke="#2D5E52" stroke-width="2"/>
+      <rect x="86" y="56" width="68" height="248" rx="34" stroke="#2D5E52" stroke-width="1.4" stroke-dasharray="4 4"/>
+      <path d="M86 150H154" stroke="#2D5E52" stroke-width="1.6"/>
+      <circle cx="120" cy="108" r="14" stroke="#2D5E52" stroke-width="1.6"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <header class="header">
+      <a href="#" class="brand"><span class="brand-dot" aria-hidden="true"></span><span>Территория стиля</span></a>
+      <a href="tel:+79177085228" class="header-phone">+7 917 708-52-28</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-tag">Йошкар-Ола, ул. Конакова, 62, офис 1</div>
+      <h1 class="hero-title">Моностудия маникюра «Территория стиля»</h1>
+      <p class="hero-subtitle">
+        Аппаратный и мужской маникюр, женский педикюр, аккуратное покрытие и укрепление. Работаем с 10:00 по предварительной записи.
+      </p>
+      <div class="btn-row">
+        <button type="button" class="btn btn-primary" id="openBookingBtn">Выбрать время онлайн</button>
+        <a href="tel:+79177085228" class="btn btn-secondary mono">+7 917 708-52-28</a>
+        <a href="https://2gis.ru/yoshkarola/firm/70000001044337873" target="_blank" rel="noopener" class="btn btn-secondary">2ГИС</a>
+      </div>
+
+      <div class="hero-info">
+        <div class="info-box"><strong>Адрес</strong>Ул. Конакова, 62, 1 этаж, офис 1</div>
+        <div class="info-box"><strong>График</strong>Открыто с 10:00 ежедневно</div>
+        <div class="info-box"><strong>Оценка на 2ГИС</strong>4.9 (34 оценки, 21 отзыв)</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Подбор формы ногтей</h2>
+      <p class="section-sub">Отметьте форму и длину, чтобы мастер заранее понимал ваш запрос</p>
+      <div class="shape-card">
+        <div class="shape-pills" id="shapePills">
+          <button type="button" class="shape-btn active" data-shape="oval">Мягкий квадрат</button>
+          <button type="button" class="shape-btn" data-shape="almond">Миндаль</button>
+          <button type="button" class="shape-btn" data-shape="round">Короткий овал</button>
+        </div>
+        <div class="shape-preview" id="shapePreview"></div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <h2 class="section-title">Услуги студии</h2>
+      <p class="section-sub">Отметьте процедуры, которые хотите включить в визит</p>
+      <div class="srv-list" id="srvList"></div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Телефоны и стандарты работы</h2>
+      <div class="two-col">
+        <div class="card-box">
+          <h3>Стерильность инструмента</h3>
+          <p>Многоэтапная обработка, крафт-пакет вскрывается при клиенте, одноразовые расходники для каждого визита.</p>
+        </div>
+        <div class="card-box">
+          <h3>Контакты для записи</h3>
+          <p>Основной: +7 917 708-52-28. Доп.: +7 902 326-88-77 и городской +7 (8362) 42-42-33.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Частые вопросы</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false"><span>Как попасть в студию на Конакова, 62</span><span>+</span></button>
+          <div class="faq-a">1 этаж, офис 1, входная группа со стороны улицы Конакова.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false"><span>Есть ли мужской маникюр</span><span>+</span></button>
+          <div class="faq-a">Да, делаем аккуратную гигиеническую обработку кутикулы и придание формы без покрытия.</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div>
+          <div style="font-weight:500;font-size:17px;margin-bottom:4px">Территория стиля</div>
+          <p style="font-size:13px;color:var(--text-sec)">Ул. Конакова, 62, офис 1, Йошкар-Ола, 424036</p>
+        </div>
+        <div class="footer-links">
+          <a href="tel:+79177085228" class="footer-link mono">+7 917 708-52-28</a>
+          <a href="tel:+78362424233" class="footer-link mono">+7 (8362) 42-42-33</a>
+          <a href="https://2gis.ru/yoshkarola/firm/70000001044337873" target="_blank" rel="noopener" class="footer-link">2ГИС</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Моностудия «Территория стиля», Йошкар-Ола</span>
+        <span>С 10:00 по записи</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="booking-bar" id="bookingBar" role="button" tabindex="0">
+    <div style="display:flex;align-items:center">
+      <span class="bar-count" id="barCount">0</span>
+      <div>
+        <div style="font-size:14px;font-weight:500">Запись в студию</div>
+        <div style="font-size:12px;opacity:0.75" id="barMeta">Выберите время</div>
+      </div>
+    </div>
+    <span style="font-size:14px;font-weight:500">Оформить</span>
+  </div>
+
+  <div class="modal-backdrop" id="bookingModal">
+    <div class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 style="font-size:22px;font-weight:500" id="modalTitle">Онлайн-запись</h3>
+        <button type="button" class="close-btn" id="closeModal" aria-label="Закрыть">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div id="pickedSummary" style="font-size:13px;color:var(--text-sec);margin-bottom:14px"></div>
+
+      <div style="font-size:13px;font-weight:500;color:var(--text-sec);margin-bottom:8px">Удобное время (с 10:00)</div>
+      <div class="slot-grid" id="slotGrid">
+        <button type="button" class="choice-btn active" data-slot="10:00">10:00</button>
+        <button type="button" class="choice-btn" data-slot="12:30">12:30</button>
+        <button type="button" class="choice-btn" data-slot="15:00">15:00</button>
+        <button type="button" class="choice-btn" data-slot="17:30">17:30</button>
+      </div>
+
+      <input type="text" id="clientName" class="modal-input" placeholder="Ваше имя">
+      <input type="tel" id="clientPhone" class="modal-input" placeholder="Ваш телефон">
+
+      <div class="btn-row" style="margin-bottom:0">
+        <button type="button" class="btn btn-primary" id="confirmBtn" style="flex:1">Подтвердить заявку</button>
+        <a href="tel:+79177085228" class="btn btn-secondary" style="flex:1">Позвонить</a>
+      </div>
+      <div class="confirm-banner" id="confirmBanner"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const SHAPES = {
+        oval: {
+          name: 'Мягкий квадрат',
+          desc: 'Универсальная форма для коротких и средних ногтей. Меньше склонна к сколам на уголках при активной работе руками.',
+          svg: '<svg width="56" height="64" viewBox="0 0 56 64" fill="none"><path d="M14 56V20C14 14 18 10 24 10H32C38 10 42 14 42 20V56" stroke="currentColor" stroke-width="2"/><path d="M18 22H38" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/></svg>'
+        },
+        almond: {
+          name: 'Миндаль',
+          desc: 'Плавное сужение к кончику визуально удлиняет пальцы и подходит для однотонных покрытий и френча.',
+          svg: '<svg width="56" height="64" viewBox="0 0 56 64" fill="none"><path d="M14 56V28C14 14 23 8 28 8C33 8 42 14 42 28V56" stroke="currentColor" stroke-width="2"/></svg>'
+        },
+        round: {
+          name: 'Короткий овал',
+          desc: 'Комфортная натуральная форма с плавным краем для максимального удобства в повседневных делах.',
+          svg: '<svg width="56" height="64" viewBox="0 0 56 64" fill="none"><path d="M14 56V26C14 16 20 12 28 12C36 12 42 16 42 26V56" stroke="currentColor" stroke-width="2"/></svg>'
+        }
+      };
+
+      const SERVICES = [
+        { id: 'n1', name: 'Аппаратный маникюр с покрытием', desc: 'Обработка кутикулы, выравнивание и однотонное покрытие (60 - 90 мин)' },
+        { id: 'n2', name: 'Аппаратный маникюр без покрытия', desc: 'Гигиеническая обработка и придание формы (45 мин)' },
+        { id: 'n3', name: 'Женский педикюр', desc: 'Обработка стоп и пальчиков с покрытием или без (60 - 80 мин)' },
+        { id: 'n4', name: 'Мужской маникюр', desc: 'Аккуратная обработка кутикулы и ногтевой пластины (40 мин)' }
+      ];
+
+      const picked = new Set(['n1']);
+      let activeShape = 'Мягкий квадрат';
+      let activeSlot = '10:00';
+
+      const parallaxArt = document.getElementById('parallaxArt');
+      let ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            parallaxArt.style.transform = 'translate3d(0, ' + (window.scrollY * 0.1) + 'px, 0) rotate(' + (-5 + window.scrollY * 0.02) + 'deg)';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      const shapePreview = document.getElementById('shapePreview');
+      function renderShape(k) {
+        const d = SHAPES[k];
+        activeShape = d.name;
+        shapePreview.innerHTML = '<div class="shape-svg-wrap">' + d.svg + '</div><div><strong style="display:block;font-weight:500;margin-bottom:4px">' + d.name + '</strong><span style="font-size:13px;color:var(--text-sec)">' + d.desc + '</span></div>';
+      }
+      document.querySelectorAll('#shapePills .shape-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('#shapePills .shape-btn').forEach(function (o) { o.classList.remove('active'); });
+          b.classList.add('active');
+          renderShape(b.getAttribute('data-shape'));
+        });
+      });
+      renderShape('oval');
+
+      const srvList = document.getElementById('srvList');
+      const bookingBar = document.getElementById('bookingBar');
+      const barCount = document.getElementById('barCount');
+      const barMeta = document.getElementById('barMeta');
+      const pickedSummary = document.getElementById('pickedSummary');
+
+      function renderServices() {
+        srvList.innerHTML = SERVICES.map(function (s) {
+          const on = picked.has(s.id);
+          return '<div class="srv-row"><div><div class="srv-name">' + s.name + '</div><div class="srv-desc">' + s.desc + '</div></div><button type="button" class="pick-btn ' + (on ? 'selected' : '') + '" data-id="' + s.id + '">' + (on ? 'Выбрано' : 'Выбрать') + '</button></div>';
+        }).join('');
+        srvList.querySelectorAll('.pick-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            const id = btn.getAttribute('data-id');
+            if (picked.has(id)) picked.delete(id); else picked.add(id);
+            renderServices(); updateBar();
+          });
+        });
+      }
+
+      function updateBar() {
+        const items = SERVICES.filter(function (s) { return picked.has(s.id); });
+        barCount.textContent = items.length;
+        barMeta.textContent = activeSlot + ', форма: ' + activeShape;
+        bookingBar.classList.toggle('visible', items.length > 0);
+        pickedSummary.textContent = items.length ? 'Выбрано: ' + items.map(function (i) { return i.name; }).join(', ') + ' (форма: ' + activeShape + ')' : 'Услуги не выбраны';
+      }
+
+      const modal = document.getElementById('bookingModal');
+      function openModal() { updateBar(); modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+      function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+      document.getElementById('openBookingBtn').addEventListener('click', openModal);
+      bookingBar.addEventListener('click', openModal);
+      document.getElementById('closeModal').addEventListener('click', closeModal);
+      modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+
+      document.querySelectorAll('#slotGrid .choice-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('#slotGrid .choice-btn').forEach(function (o) { o.classList.remove('active'); });
+          b.classList.add('active');
+          activeSlot = b.getAttribute('data-slot');
+          updateBar();
+        });
+      });
+
+      document.getElementById('confirmBtn').addEventListener('click', function () {
+        const n = document.getElementById('clientName').value.trim() || 'Гость';
+        const banner = document.getElementById('confirmBanner');
+        banner.style.display = 'block';
+        banner.textContent = n + ', заявка готова на ' + activeSlot + ' (форма: ' + activeShape + '). Позвоните +7 917 708-52-28 для подтверждения.';
+      });
+
+      document.querySelectorAll('.faq-q').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const open = btn.parentElement.classList.toggle('open');
+          btn.setAttribute('aria-expanded', String(open));
+        });
+      });
+
+      renderServices();
+      updateBar();
+    })();
+  </script>
+</body>
+</html>

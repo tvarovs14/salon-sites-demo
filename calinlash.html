@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calinlash — студия бровей и ресниц с онлайн-записью в Чебоксарах</title>
+  <meta name="description" content="Студия Calinlash в Чебоксарах: ЖК Видный, ул. Калинина, 86, офис 301. Оформление и укладка бровей, ламинирование и наращивание ресниц. Онлайн-запись с 09:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8F5F2;
+      --surface: #FFFFFF;
+      --surface-soft: #F1ECE7;
+      --surface-hover: #E9E2DB;
+      --border: rgba(42, 31, 36, 0.10);
+      --border-strong: rgba(42, 31, 36, 0.22);
+      --text-primary: #2A1F24;
+      --text-secondary: #685A60;
+      --text-muted: #93868B;
+      --accent: #6E4759;
+      --accent-hover: #583746;
+      --accent-tint: #F4EDF0;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      position: relative;
+      overflow-x: hidden;
+      min-height: 100vh;
+      padding-bottom: 104px;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .mono {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Parallax Botanical / Lash Line Art */
+    .bg-ornament {
+      position: fixed;
+      top: 10vh;
+      right: -70px;
+      width: 260px;
+      height: 380px;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.16;
+      will-change: transform;
+    }
+
+    @media (min-width: 768px) {
+      .bg-ornament {
+        right: 6vw;
+        top: 12vh;
+        width: 320px;
+        height: 460px;
+        opacity: 0.22;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .bg-ornament {
+        right: calc(50% - 500px);
+      }
+    }
+
+    /* Layout Container */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .header-meta {
+      font-size: 13px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 44px 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-place {
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      line-height: 0.98;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 64px;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      max-width: 48ch;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 540px) {
+      .hero-actions {
+        flex-direction: row;
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background-color: var(--surface);
+      color: var(--text-primary);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--surface-soft);
+      border-color: var(--border-strong);
+    }
+
+    .hero-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (min-width: 540px) {
+      .hero-info {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--text-secondary);
+    }
+
+    .info-item .icon {
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .info-item strong {
+      display: block;
+      color: var(--text-primary);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .section-note {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Interactive Lash & Brow Style Selector */
+    .look-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .look-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      margin-bottom: 18px;
+      scrollbar-width: none;
+    }
+
+    .look-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .look-tab {
+      padding: 9px 16px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background-color: transparent;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .look-tab:hover {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+    }
+
+    .look-tab.active {
+      background-color: var(--text-primary);
+      color: #FFFFFF;
+      border-color: var(--text-primary);
+    }
+
+    .look-preview {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 16px;
+      border-radius: 12px;
+      background-color: var(--surface-soft);
+    }
+
+    @media (min-width: 540px) {
+      .look-preview {
+        grid-template-columns: 140px 1fr;
+      }
+    }
+
+    .look-svg-box {
+      height: 100px;
+      border-radius: 10px;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .look-name {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .look-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .look-meta {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Category Tabs */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      margin-bottom: 20px;
+      scrollbar-width: none;
+    }
+
+    .tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      padding: 9px 16px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+    }
+
+    .tab-btn.active {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
+    }
+
+    /* Service Items */
+    .menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: border-color 0.2s ease;
+    }
+
+    .menu-item:hover {
+      border-color: var(--border-strong);
+    }
+
+    .menu-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .menu-item-top {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .menu-item-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .menu-item-dur {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .menu-item-desc {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--text-secondary);
+    }
+
+    .menu-item-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .menu-item-price {
+      font-size: 15px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .pick-btn {
+      min-width: 38px;
+      height: 38px;
+      padding: 0 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .pick-btn:hover {
+      border-color: var(--accent);
+    }
+
+    .pick-btn.selected {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #FFFFFF;
+    }
+
+    /* Info & Care Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 540px) {
+      .cards-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .feature-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .feature-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .feature-text {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .faq-a {
+      padding: 0 18px 16px;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      display: none;
+    }
+
+    .faq-item.open .faq-a {
+      display: block;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 36px 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    @media (min-width: 540px) {
+      .footer-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 10px;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      background-color: var(--surface-soft);
+    }
+
+    .footer-bottom {
+      font-size: 12px;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Floating Booking Bar */
+    .booking-bar {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translate(-50%, 140%);
+      width: calc(100% - 32px);
+      max-width: 640px;
+      background-color: var(--text-primary);
+      color: #FFFFFF;
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 40;
+      cursor: pointer;
+      transition: transform 0.32s var(--ease);
+    }
+
+    .booking-bar.visible {
+      transform: translate(-50%, 0);
+    }
+
+    .bar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .bar-count {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 500;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .bar-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .bar-sub {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .bar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Modal Sheet */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(42, 31, 36, 0.45);
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+      .modal-backdrop {
+        align-items: center;
+        padding: 20px;
+      }
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-sheet {
+      width: 100%;
+      max-width: 520px;
+      background-color: var(--bg);
+      border-radius: 20px 20px 0 0;
+      border: 1px solid var(--border);
+      padding: 24px 20px 28px;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.3s var(--ease);
+    }
+
+    @media (min-width: 640px) {
+      .modal-sheet {
+        border-radius: 20px;
+        transform: translateY(16px);
+      }
+    }
+
+    .modal-backdrop.open .modal-sheet {
+      transform: translateY(0);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+
+    .modal-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .close-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .picked-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .picked-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 13px;
+    }
+
+    .modal-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .day-grid, .slot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .slot-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .choice-btn {
+      padding: 10px 8px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+
+    .choice-btn.active {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
+    }
+
+    .modal-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      font-family: inherit;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .modal-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 8px;
+      margin-bottom: 16px;
+    }
+
+    .modal-total {
+      font-size: 22px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .confirm-banner {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background-color: var(--accent-tint);
+      border: 1px solid var(--accent);
+      font-size: 13px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Parallax Botanical Line SVG -->
+  <div class="bg-ornament" id="parallaxArt" aria-hidden="true">
+    <svg viewBox="0 0 260 390" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M130 360C130 270 128 180 142 90C147 58 156 34 166 20" stroke="#6E4759" stroke-width="2" stroke-linecap="round"/>
+      <path d="M133 280C95 258 64 234 46 202C80 210 112 232 133 268" stroke="#6E4759" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M134 230C172 206 204 180 220 146C186 156 156 180 134 218" stroke="#6E4759" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M136 176C98 156 72 130 58 98C90 108 118 132 136 164" stroke="#6E4759" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M140 122C174 102 198 78 210 48C180 58 156 80 140 112" stroke="#6E4759" stroke-width="1.8" stroke-linejoin="round"/>
+      <circle cx="166" cy="20" r="6" stroke="#6E4759" stroke-width="1.8"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <header class="header">
+      <a href="#" class="logo">Calinlash</a>
+      <div class="header-meta">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+        <span>Открыто с 09:00 по записи</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-place">Чебоксары, ЖК Видный, ул. Калинина, 86</div>
+      <h1 class="hero-title">Брови и ресницы с бережным подходом</h1>
+      <p class="hero-subtitle">
+        Долговременная укладка, коррекция и окрашивание бровей, ламинирование и наращивание ресниц в офисе 301. Выберите процедуры и удобное время онлайн.
+      </p>
+
+      <div class="hero-actions">
+        <button type="button" class="btn btn-primary" id="openBookingHero">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Выбрать время онлайн</span>
+        </button>
+        <a href="tel:+79969499699" class="btn btn-secondary">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+7 996 949-96-99</span>
+        </a>
+      </div>
+
+      <div class="hero-info">
+        <div class="info-item">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <strong>Адрес студии</strong>
+            ЖК Видный, ул. Калинина, 86, 1 этаж, офис 301, Чебоксары
+          </div>
+        </div>
+        <div class="info-item">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <div>
+            <strong>Оценка на 2ГИС</strong>
+            4.6 по 35 оценкам и 25 отзывам гостей
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Подбор эффекта</h2>
+        <span class="section-note">Сравните варианты перед записью</span>
+      </div>
+
+      <div class="look-card">
+        <div class="look-tabs" id="lookTabs" role="tablist">
+          <button type="button" class="look-tab active" data-look="natural" role="tab">Естественные брови</button>
+          <button type="button" class="look-tab" data-look="lamination" role="tab">Ламинирование ресниц</button>
+          <button type="button" class="look-tab" data-look="volume" role="tab">Наращивание</button>
+        </div>
+        <div class="look-preview" id="lookPreview"></div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-header">
+        <h2 class="section-title">Услуги и прайс</h2>
+        <span class="section-note">Отметьте позиции для записи</span>
+      </div>
+
+      <div class="tabs" id="catTabs" role="tablist">
+        <button type="button" class="tab-btn active" data-cat="all" role="tab">Все услуги</button>
+        <button type="button" class="tab-btn" data-cat="brows" role="tab">Брови</button>
+        <button type="button" class="tab-btn" data-cat="lashes" role="tab">Ресницы</button>
+      </div>
+
+      <div class="menu-list" id="menuContainer"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Уход после визита</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="feature-card">
+          <span class="feature-tag">Первые 24 часа</span>
+          <h3 class="feature-title">Без воды и пара</h3>
+          <p class="feature-text">После ламинирования ресниц и долговременной укладки бровей избегайте сауны, бассейна и умывания горячей водой в первые сутки.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-tag">Ежедневно</span>
+          <h3 class="feature-title">Щёточка и увлажнение</h3>
+          <p class="feature-text">Расчёсывайте волоски чистой сухой щёточкой по направлению роста и используйте питательный гель без масел для продления результата.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Частые вопросы</h2>
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false"><span>Где находится вход в студию</span><span>+</span></button>
+          <div class="faq-a">Чебоксары, Калининский район, ЖК Видный, улица Калинина, 86, 1 этаж, офис 301.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false"><span>Как проходит онлайн-запись</span><span>+</span></button>
+          <div class="faq-a">Отметьте нужные услуги в прайсе, выберите удобный день и время в нижней панели и отправьте заявку в WhatsApp или позвоните администратору.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false"><span>Сколько держится укладка бровей</span><span>+</span></button>
+          <div class="faq-a">В среднем от 4 до 6 недель в зависимости от скорости обновления волосков и домашнего ухода.</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div>
+          <div class="logo" style="margin-bottom: 6px;">Calinlash</div>
+          <p style="font-size: 13px; color: var(--text-secondary);">ЖК Видный, ул. Калинина, 86, офис 301, Чебоксары, 428012</p>
+        </div>
+        <div class="footer-links">
+          <a href="tel:+79969499699" class="footer-link mono">+7 996 949-96-99</a>
+          <a href="https://wa.me/79969499699" target="_blank" rel="noopener" class="footer-link">WhatsApp</a>
+          <a href="https://2gis.ru/cheboksary/firm/70000001074761392" target="_blank" rel="noopener" class="footer-link">2ГИС</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Студия Calinlash, Чебоксары</span>
+        <span>С 09:00 по предварительной записи</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="booking-bar" id="bookingBar" role="button" tabindex="0">
+    <div class="bar-left">
+      <div class="bar-count" id="barCount">0</div>
+      <div>
+        <div class="bar-title">Запись в Calinlash</div>
+        <div class="bar-sub" id="barSub">Выберите время визита</div>
+      </div>
+    </div>
+    <div class="bar-right">
+      <span id="barTotal">0 ₽</span>
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="bookingModal">
+    <div class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Онлайн-запись</h3>
+        <button type="button" class="close-btn" id="closeModalBtn" aria-label="Закрыть">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="picked-list" id="pickedList"></div>
+
+      <span class="modal-label">День визита</span>
+      <div class="day-grid" id="dayGrid">
+        <button type="button" class="choice-btn active" data-day="Сегодня">Сегодня</button>
+        <button type="button" class="choice-btn" data-day="Завтра">Завтра</button>
+        <button type="button" class="choice-btn" data-day="Через 2 дня">Через 2 дня</button>
+      </div>
+
+      <span class="modal-label">Удобное время</span>
+      <div class="slot-grid" id="slotGrid">
+        <button type="button" class="choice-btn active" data-slot="09:30">09:30</button>
+        <button type="button" class="choice-btn" data-slot="11:30">11:30</button>
+        <button type="button" class="choice-btn" data-slot="14:00">14:00</button>
+        <button type="button" class="choice-btn" data-slot="16:30">16:30</button>
+      </div>
+
+      <label class="modal-label" for="clientName">Ваше имя</label>
+      <input type="text" id="clientName" class="modal-input" placeholder="Например: Анна">
+
+      <div class="modal-summary">
+        <span style="font-size:14px;color:var(--text-secondary)">Ориентировочная сумма</span>
+        <span class="modal-total mono" id="modalTotal">0 ₽</span>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-primary" id="confirmLocalBtn">Подтвердить заявку</button>
+        <a href="https://wa.me/79969499699" target="_blank" rel="noopener" class="btn btn-secondary" id="waOrderBtn">Отправить в WhatsApp</a>
+      </div>
+
+      <div class="confirm-banner" id="confirmBanner"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const SERVICES = [
+        { id: 'b1', cat: 'brows', name: 'Долговременная укладка бровей', dur: '50 мин', desc: 'Придание формы и фиксация направления волосков без эффекта склеивания', price: 1390, label: '1 390 ₽' },
+        { id: 'b2', cat: 'brows', name: 'Окрашивание бровей', dur: '35 мин', desc: 'Подбор оттенка краски или хны под цветотип кожи и волос', price: 900, label: '900 ₽' },
+        { id: 'b3', cat: 'brows', name: 'Коррекция бровей', dur: '25 мин', desc: 'Аккуратное оформление формы пинцетом и воском', price: 500, label: '500 ₽' },
+        { id: 'l1', cat: 'lashes', name: 'Ламинирование ресниц', dur: '60 мин', desc: 'Мягкий изгиб, уплотнение и уход без утяжеления', price: 0, label: 'По прайсу' },
+        { id: 'l2', cat: 'lashes', name: 'Наращивание ресниц', dur: '90 - 120 мин', desc: 'Классика или лёгкий объём под разрез глаз и густоту', price: 0, label: 'По прайсу' },
+        { id: 'l3', cat: 'lashes', name: 'Окрашивание ресниц', dur: '25 мин', desc: 'Глубокий цвет от корней до кончиков без туши', price: 0, label: 'По прайсу' }
+      ];
+
+      const LOOKS = {
+        natural: {
+          title: 'Естественные брови',
+          desc: 'Лёгкая коррекция и мягкое окрашивание сохраняют природную ширину и фактуру волосков без графичных границ.',
+          meta: 'Длительность 35 - 50 мин, держится до 4 недель',
+          svg: '<svg width="88" height="48" viewBox="0 0 88 48" fill="none"><path d="M10 30C26 16 48 16 78 26" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M16 32C30 22 50 22 72 28" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.5" stroke-linecap="round"/></svg>'
+        },
+        lamination: {
+          title: 'Ламинирование ресниц',
+          desc: 'Фиксация естественного завитка от корня и насыщенный пигмент. Подходит тем, кто хочет открытый взгляд без наращивания.',
+          meta: 'Длительность 60 мин, эффект сохраняется 5 - 7 недель',
+          svg: '<svg width="88" height="48" viewBox="0 0 88 48" fill="none"><path d="M14 32C28 24 60 24 74 32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M24 26L20 14M34 24L32 10M44 23L44 9M54 24L56 10M64 26L68 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>'
+        },
+        volume: {
+          title: 'Наращивание ресниц',
+          desc: 'Плавный переход длины от внутреннего уголка к внешнему, комфортная носка и подбор изгиба под форму века.',
+          meta: 'Длительность 90 - 120 мин, коррекция через 3 - 4 недели',
+          svg: '<svg width="88" height="48" viewBox="0 0 88 48" fill="none"><path d="M12 34C30 24 58 24 76 34" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M20 28L14 14M28 26L24 10M36 25L34 8M44 24L44 7M52 25L54 8M60 26L64 10M68 28L74 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>'
+        }
+      };
+
+      const selectedIds = new Set(['b1']);
+      let activeCat = 'all';
+      let selectedDay = 'Сегодня';
+      let selectedSlot = '09:30';
+
+      const parallaxArt = document.getElementById('parallaxArt');
+      let ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            const y = window.scrollY;
+            parallaxArt.style.transform = 'translate3d(0, ' + (y * 0.12) + 'px, 0) rotate(' + (-6 + y * 0.025) + 'deg)';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      const lookPreview = document.getElementById('lookPreview');
+      const lookTabs = document.querySelectorAll('.look-tab');
+      function renderLook(key) {
+        const d = LOOKS[key];
+        lookPreview.innerHTML =
+          '<div class="look-svg-box">' + d.svg + '</div>' +
+          '<div><h3 class="look-name">' + d.title + '</h3><p class="look-desc">' + d.desc + '</p><div class="look-meta">' + d.meta + '</div></div>';
+      }
+      lookTabs.forEach(function (t) {
+        t.addEventListener('click', function () {
+          lookTabs.forEach(function (o) { o.classList.remove('active'); });
+          t.classList.add('active');
+          renderLook(t.getAttribute('data-look'));
+        });
+      });
+      renderLook('natural');
+
+      const menuContainer = document.getElementById('menuContainer');
+      const catTabs = document.querySelectorAll('.tab-btn');
+      const bookingBar = document.getElementById('bookingBar');
+      const barCount = document.getElementById('barCount');
+      const barSub = document.getElementById('barSub');
+      const barTotal = document.getElementById('barTotal');
+      const pickedList = document.getElementById('pickedList');
+      const modalTotal = document.getElementById('modalTotal');
+      const waOrderBtn = document.getElementById('waOrderBtn');
+
+      function fmt(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽';
+      }
+
+      function renderMenu() {
+        const items = SERVICES.filter(function (s) { return activeCat === 'all' || s.cat === activeCat; });
+        menuContainer.innerHTML = items.map(function (item) {
+          const picked = selectedIds.has(item.id);
+          return '<article class="menu-item">' +
+            '<div class="menu-item-info">' +
+              '<div class="menu-item-top"><h3 class="menu-item-name">' + item.name + '</h3><span class="menu-item-dur mono">' + item.dur + '</span></div>' +
+              '<p class="menu-item-desc">' + item.desc + '</p>' +
+            '</div>' +
+            '<div class="menu-item-right">' +
+              '<span class="menu-item-price mono">' + item.label + '</span>' +
+              '<button type="button" class="pick-btn ' + (picked ? 'selected' : '') + '" data-id="' + item.id + '">' + (picked ? 'Выбрано' : 'Выбрать') + '</button>' +
+            '</div>' +
+          '</article>';
+        }).join('');
+
+        menuContainer.querySelectorAll('.pick-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            const id = btn.getAttribute('data-id');
+            if (selectedIds.has(id)) selectedIds.delete(id);
+            else selectedIds.add(id);
+            renderMenu();
+            updateSummary();
+          });
+        });
+      }
+
+      function updateSummary() {
+        const picked = SERVICES.filter(function (s) { return selectedIds.has(s.id); });
+        let sum = 0;
+        let hasCustom = false;
+        picked.forEach(function (p) {
+          if (p.price > 0) sum += p.price;
+          else hasCustom = true;
+        });
+
+        const totalStr = picked.length === 0 ? '0 ₽' : (sum > 0 ? (hasCustom ? 'от ' + fmt(sum) : fmt(sum)) : 'По прайсу');
+        barCount.textContent = picked.length;
+        barTotal.textContent = totalStr;
+        modalTotal.textContent = totalStr;
+        barSub.textContent = selectedDay + ', ' + selectedSlot;
+        bookingBar.classList.toggle('visible', picked.length > 0);
+
+        if (picked.length === 0) {
+          pickedList.innerHTML = '<div class="picked-row"><span>Услуги пока не отмечены</span><span class="mono">0 ₽</span></div>';
+        } else {
+          pickedList.innerHTML = picked.map(function (p) {
+            return '<div class="picked-row"><span>' + p.name + '</span><span class="mono">' + p.label + '</span></div>';
+          }).join('');
+        }
+
+        const names = picked.map(function (p) { return p.name; }).join(', ');
+        const msg = 'Здравствуйте. Хочу записаться в Calinlash (' + selectedDay + ', ' + selectedSlot + ')' + (names ? ' на: ' + names : '') + '.';
+        waOrderBtn.href = 'https://wa.me/79969499699?text=' + encodeURIComponent(msg);
+      }
+
+      catTabs.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          catTabs.forEach(function (o) { o.classList.remove('active'); });
+          btn.classList.add('active');
+          activeCat = btn.getAttribute('data-cat');
+          renderMenu();
+        });
+      });
+
+      const bookingModal = document.getElementById('bookingModal');
+      function openModal() {
+        updateSummary();
+        bookingModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        bookingModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('openBookingHero').addEventListener('click', openModal);
+      bookingBar.addEventListener('click', openModal);
+      document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+      bookingModal.addEventListener('click', function (e) { if (e.target === bookingModal) closeModal(); });
+
+      document.querySelectorAll('#dayGrid .choice-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('#dayGrid .choice-btn').forEach(function (o) { o.classList.remove('active'); });
+          btn.classList.add('active');
+          selectedDay = btn.getAttribute('data-day');
+          updateSummary();
+        });
+      });
+
+      document.querySelectorAll('#slotGrid .choice-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('#slotGrid .choice-btn').forEach(function (o) { o.classList.remove('active'); });
+          btn.classList.add('active');
+          selectedSlot = btn.getAttribute('data-slot');
+          updateSummary();
+        });
+      });
+
+      document.getElementById('confirmLocalBtn').addEventListener('click', function () {
+        const name = document.getElementById('clientName').value.trim() || 'Гость';
+        const banner = document.getElementById('confirmBanner');
+        banner.style.display = 'block';
+        banner.textContent = name + ', заявка сформирована на ' + selectedDay + ' в ' + selectedSlot + '. Отправьте её в WhatsApp или позвоните +7 996 949-96-99.';
+      });
+
+      document.querySelectorAll('.faq-q').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const item = btn.parentElement;
+          const open = item.classList.toggle('open');
+          btn.setAttribute('aria-expanded', String(open));
+        });
+      });
+
+      renderMenu();
+      updateSummary();
+    })();
+  </script>
+</body>
+</html>

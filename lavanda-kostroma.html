@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lavanda — ногтевая студия и онлайн-запись в Костроме</title>
+  <meta name="description" content="Ногтевая студия Lavanda в Костроме: Советская ул., 123, офисы 13-14. Маникюр, педикюр, брови, ресницы, вечерние причёски. Мастера Алина и Юля. Открыто с 08:00.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --bg: #F5F6F7;
+      --surface: #FFFFFF;
+      --surface-soft: #ECEEF0;
+      --border: rgba(28, 26, 34, 0.09);
+      --border-strong: rgba(28, 26, 34, 0.19);
+      --text: #1C1A22;
+      --text-sec: #5A5566;
+      --muted: #868092;
+      --accent: #544263;
+      --accent-hover: #42334F;
+      --accent-ink: #FFFFFF;
+      --tint: #F1EEF4;
+      --r-lg: 16px;
+      --r-md: 12px;
+      --r-sm: 8px;
+      --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, monospace;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 104px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .mono {
+      font-family: var(--mono);
+      font-variant-numeric: tabular-nums;
+    }
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .parallax-art {
+      position: fixed;
+      top: 10vh;
+      right: -60px;
+      width: 240px;
+      height: 360px;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.14;
+      will-change: transform;
+    }
+    @media (min-width: 768px) {
+    .parallax-art {
+      right: 6vw;
+      width: 300px;
+      height: 440px;
+      opacity: 0.18;
+    }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      font-weight: 500;
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-phone {
+      padding: 7px 12px;
+      border-radius: var(--r-sm);
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .hero {
+      padding: 40px 0 36px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-tag {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .hero-title {
+      font-size: 32px;
+      line-height: 1.15;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    @media (min-width: 640px) {
+      .hero-title {
+        font-size: 44px;
+      }
+    }
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-sec);
+      max-width: 50ch;
+      margin-bottom: 24px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 12px 20px;
+      border-radius: 10px; font-size: 14px; font-weight: 500; border: 1px solid transparent;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-primary {
+      background-color: var(--accent);
+      color: var(--accent-ink);
+    }
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+    .btn-secondary {
+      background-color: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-secondary:hover {
+      background-color: var(--surface-soft);
+      border-color: var(--border-strong);
+    }
+
+    .hero-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-sec);
+    }
+    @media (min-width: 540px) {
+      .hero-info {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .hero-info strong {
+      display: block;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .section {
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .masters-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    @media (min-width: 540px) {
+      .masters-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .master-btn {
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: var(--r-md);
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .master-btn[aria-pressed="true"] {
+      border-color: var(--accent);
+      background-color: var(--tint);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      margin-bottom: 16px;
+    }
+    .tab-btn {
+      padding: 8px 16px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      color: var(--text-sec);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .tab-btn.active {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
+    }
+
+    .srv-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .srv-item {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+    .srv-name {
+      font-weight: 500;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .srv-desc {
+      font-size: 13px;
+      color: var(--text-sec);
+    }
+    .pick-btn {
+      min-height: 36px;
+      padding: 0 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .pick-btn.selected {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #FFFFFF;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .faq-item {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .faq-a {
+      padding: 0 18px 16px;
+      font-size: 13px;
+      color: var(--text-sec);
+      display: none;
+    }
+    .faq-item.open .faq-a {
+      display: block;
+    }
+
+    .footer {
+      padding: 32px 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    @media (min-width: 540px) {
+      .footer-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-link {
+      padding: 8px 14px;
+      border-radius: 8px;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .footer-bottom {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .booking-bar {
+      position: fixed; bottom: 16px; left: 50%; transform: translate(-50%, 140%);
+      width: calc(100% - 32px); max-width: 720px; background-color: var(--text); color: #FFFFFF;
+      border-radius: 16px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;
+      z-index: 40; cursor: pointer; transition: transform 0.3s var(--ease);
+    }
+    .booking-bar.visible {
+      transform: translate(-50%, 0);
+    }
+    .bar-count {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      margin-right: 12px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(28, 26, 34, 0.45);
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    @media (min-width: 640px) {
+      .modal-backdrop {
+        align-items: center;
+        padding: 20px;
+      }
+    }
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-sheet {
+      width: 100%;
+      max-width: 520px;
+      background-color: var(--bg);
+      border-radius: 20px 20px 0 0;
+      border: 1px solid var(--border);
+      padding: 24px 20px 28px;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.3s var(--ease);
+    }
+    @media (min-width: 640px) {
+      .modal-sheet {
+        border-radius: 20px;
+        transform: translateY(16px);
+      }
+    }
+    .modal-backdrop.open .modal-sheet {
+      transform: translateY(0);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .close-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slot-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .choice-btn {
+      padding: 10px 6px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      font-family: var(--mono);
+      font-size: 13px;
+      text-align: center;
+    }
+    .choice-btn.active {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
+      font-weight: 500;
+    }
+    .modal-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      font-family: inherit;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="parallax-art" id="parallaxArt" aria-hidden="true">
+    <svg viewBox="0 0 240 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M120 330V40" stroke="#544263" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="100" cy="110" rx="14" ry="8" transform="rotate(-35 100 110)" stroke="#544263" stroke-width="1.6"/>
+      <ellipse cx="140" cy="110" rx="14" ry="8" transform="rotate(35 140 110)" stroke="#544263" stroke-width="1.6"/>
+      <ellipse cx="100" cy="160" rx="14" ry="8" transform="rotate(-35 100 160)" stroke="#544263" stroke-width="1.6"/>
+      <ellipse cx="140" cy="160" rx="14" ry="8" transform="rotate(35 140 160)" stroke="#544263" stroke-width="1.6"/>
+      <ellipse cx="100" cy="210" rx="14" ry="8" transform="rotate(-35 100 210)" stroke="#544263" stroke-width="1.6"/>
+      <ellipse cx="140" cy="210" rx="14" ry="8" transform="rotate(35 140 210)" stroke="#544263" stroke-width="1.6"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <header class="header">
+      <a href="#" class="brand">Lavanda, Кострома</a>
+      <a href="tel:+79502496895" class="header-phone">+7 950 249-68-95</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-tag">Центральный район, Советская ул., 123, офисы 13, 14</div>
+      <h1 class="hero-title">Ногтевая студия и взгляд Lavanda</h1>
+      <p class="hero-subtitle">
+        Аппаратный и мужской маникюр, педикюр, гель-лак, брови, ресницы, свадебные и вечерние причёски. Открыто с 08:00 по записи.
+      </p>
+      <div class="btn-row">
+        <button type="button" class="btn btn-primary" id="openBookingBtn">Выбрать время онлайн</button>
+        <a href="https://wa.me/79502496895" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp</a>
+        <a href="https://2gis.ru/kostroma/firm/70000001046739841" target="_blank" rel="noopener" class="btn btn-secondary">2ГИС</a>
+      </div>
+      <div class="hero-info">
+        <div><strong>Вход</strong>1 этаж, домофон 13, 14</div>
+        <div><strong>Остановка</strong>«Привокзальная» (200 м)</div>
+        <div><strong>Оценка 2ГИС</strong>4.5 (20 отзывов)</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Выбор мастера и услуг</h2>
+      <div class="masters-row" id="mastersRow">
+        <button type="button" class="master-btn" data-m="Любой мастер" aria-pressed="true"><div style="font-weight:500">Любой мастер</div><div style="font-size:12px;color:var(--text-sec)">Свободное окно</div></button>
+        <button type="button" class="master-btn" data-m="Алина" aria-pressed="false"><div style="font-weight:500">Алина</div><div style="font-size:12px;color:var(--text-sec)">Ногтевой сервис</div></button>
+        <button type="button" class="master-btn" data-m="Юля" aria-pressed="false"><div style="font-weight:500">Юля</div><div style="font-size:12px;color:var(--text-sec)">Маникюр и оформление</div></button>
+      </div>
+      <div class="tabs" id="catTabs" role="tablist">
+        <button type="button" class="tab-btn active" data-cat="all" role="tab">Все услуги</button>
+        <button type="button" class="tab-btn" data-cat="nails" role="tab">Ногти</button>
+        <button type="button" class="tab-btn" data-cat="look" role="tab">Брови, ресницы, причёски</button>
+      </div>
+      <div class="srv-list" id="menuContainer"></div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Частые вопросы</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false"><span>Как попасть в студию</span><span>+</span></button>
+          <div class="faq-a">Советская улица, 123, 1 этаж, офисы 13 и 14, код домофона 13 или 14.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q" aria-expanded="false"><span>Какие способы оплаты</span><span>+</span></button>
+          <div class="faq-a">Наличный расчёт. Ориентир по маникюру в отзывах гостей около 1 800 ₽.</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div>
+          <div style="font-weight:500;font-size:17px;margin-bottom:4px">Lavanda</div>
+          <p style="font-size:13px;color:var(--text-sec)">Советская ул., 123, офисы 13, 14, Кострома, 156029</p>
+        </div>
+        <div class="footer-links">
+          <a href="tel:+79502496895" class="footer-link mono">+7 950 249-68-95</a>
+          <a href="https://wa.me/79502496895" target="_blank" rel="noopener" class="footer-link">WhatsApp</a>
+          <a href="https://2gis.ru/kostroma/firm/70000001046739841" target="_blank" rel="noopener" class="footer-link">2ГИС</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Ногтевая студия Lavanda, Кострома</span>
+        <span>С 08:00 по записи</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="booking-bar" id="bookingBar" role="button" tabindex="0">
+    <div style="display:flex;align-items:center">
+      <span class="bar-count" id="barCount">0</span>
+      <div>
+        <div style="font-size:14px;font-weight:500">Запись в Lavanda</div>
+        <div style="font-size:12px;opacity:0.75" id="barSub">Время визита</div>
+      </div>
+    </div>
+    <span style="font-size:14px;font-weight:500">Записаться</span>
+  </div>
+
+  <div class="modal-backdrop" id="bookingModal">
+    <div class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 style="font-size:22px;font-weight:500" id="modalTitle">Онлайн-запись</h3>
+        <button type="button" class="close-btn" id="closeModal" aria-label="Закрыть">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div id="pickedSummary" style="font-size:13px;color:var(--text-sec);margin-bottom:14px"></div>
+      <div style="font-size:13px;font-weight:500;color:var(--text-sec);margin-bottom:8px">Удобное время (с 08:00)</div>
+      <div class="slot-grid" id="slotGrid">
+        <button type="button" class="choice-btn active" data-slot="08:30">08:30</button>
+        <button type="button" class="choice-btn" data-slot="11:30">11:30</button>
+        <button type="button" class="choice-btn" data-slot="14:30">14:30</button>
+        <button type="button" class="choice-btn" data-slot="17:30">17:30</button>
+      </div>
+      <input type="text" id="clientName" class="modal-input" placeholder="Ваше имя">
+      <a href="https://wa.me/79502496895" target="_blank" rel="noopener" class="btn btn-primary" id="waBtn" style="width:100%">Отправить в WhatsApp</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const SERVICES = [
+        { id: 'l1', cat: 'nails', name: 'Аппаратный маникюр и гель-лак', desc: 'Обработка, выравнивание и стойкое покрытие' },
+        { id: 'l2', cat: 'nails', name: 'Наращивание ногтей гелем', desc: 'Моделирование длины и аккуратной формы' },
+        { id: 'l3', cat: 'nails', name: 'Женский и мужской педикюр', desc: 'Гигиеническая обработка стоп и пальчиков' },
+        { id: 'l4', cat: 'nails', name: 'Мужской маникюр', desc: 'Аккуратная обработка без покрытия' },
+        { id: 'l5', cat: 'look', name: 'Брови: коррекция, окрашивание, ламинирование', desc: 'Подбор формы и стойкого оттенка' },
+        { id: 'l6', cat: 'look', name: 'Ресницы и причёски', desc: 'Окрашивание, наращивание ресниц, свадебные и вечерние причёски' }
+      ];
+
+      const picked = new Set(['l1']);
+      let activeCat = 'all';
+      let master = 'Любой мастер';
+      let slot = '08:30';
+
+      const parallaxArt = document.getElementById('parallaxArt');
+      let ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            parallaxArt.style.transform = 'translate3d(0, ' + (window.scrollY * 0.1) + 'px, 0)';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      const menuContainer = document.getElementById('menuContainer');
+      const bookingBar = document.getElementById('bookingBar');
+      const barCount = document.getElementById('barCount');
+      const barSub = document.getElementById('barSub');
+      const pickedSummary = document.getElementById('pickedSummary');
+      const waBtn = document.getElementById('waBtn');
+
+      function renderMenu() {
+        const list = SERVICES.filter(function (s) { return activeCat === 'all' || s.cat === activeCat; });
+        menuContainer.innerHTML = list.map(function (s) {
+          const on = picked.has(s.id);
+          return '<article class="srv-item"><div><div class="srv-name">' + s.name + '</div><div class="srv-desc">' + s.desc + '</div></div><button type="button" class="pick-btn ' + (on ? 'selected' : '') + '" data-id="' + s.id + '">' + (on ? 'Выбрано' : 'Выбрать') + '</button></article>';
+        }).join('');
+        menuContainer.querySelectorAll('.pick-btn').forEach(function (b) {
+          b.addEventListener('click', function () {
+            const id = b.getAttribute('data-id');
+            if (picked.has(id)) picked.delete(id); else picked.add(id);
+            renderMenu(); updateBar();
+          });
+        });
+      }
+
+      function updateBar() {
+        const items = SERVICES.filter(function (s) { return picked.has(s.id); });
+        barCount.textContent = items.length;
+        barSub.textContent = master + ', ' + slot;
+        bookingBar.classList.toggle('visible', items.length > 0);
+        const names = items.map(function (i) { return i.name; }).join(', ');
+        pickedSummary.textContent = 'Мастер: ' + master + '. Услуги: ' + (names || 'не выбраны');
+        const msg = 'Здравствуйте. Хочу записаться в студию Lavanda (' + master + ', ' + slot + ')' + (names ? ' на: ' + names : '') + '.';
+        waBtn.href = 'https://wa.me/79502496895?text=' + encodeURIComponent(msg);
+      }
+
+      document.querySelectorAll('#mastersRow .master-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('#mastersRow .master-btn').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+          master = b.getAttribute('data-m'); updateBar();
+        });
+      });
+
+      document.querySelectorAll('#catTabs .tab-btn').forEach(function (t) {
+        t.addEventListener('click', function () {
+          document.querySelectorAll('#catTabs .tab-btn').forEach(function (o) { o.classList.remove('active'); });
+          t.classList.add('active'); activeCat = t.getAttribute('data-cat'); renderMenu();
+        });
+      });
+
+      const modal = document.getElementById('bookingModal');
+      function openModal() { updateBar(); modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+      function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+      document.getElementById('openBookingBtn').addEventListener('click', openModal);
+      bookingBar.addEventListener('click', openModal);
+      document.getElementById('closeModal').addEventListener('click', closeModal);
+      modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+
+      document.querySelectorAll('#slotGrid .choice-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('#slotGrid .choice-btn').forEach(function (o) { o.classList.remove('active'); });
+          b.classList.add('active'); slot = b.getAttribute('data-slot'); updateBar();
+        });
+      });
+
+      document.querySelectorAll('.faq-q').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const open = btn.parentElement.classList.toggle('open');
+          btn.setAttribute('aria-expanded', String(open));
+        });
+      });
+
+      renderMenu();
+      updateBar();
+    })();
+  </script>
+</body>
+</html>
